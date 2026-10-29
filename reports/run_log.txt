@@ -1,0 +1,21 @@
+task=check-feed  started=2026-10-29 03:43:43 UTC
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/run.py", line 201, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/run.py", line 187, in main
+    return check_feed(cfg)
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/run.py", line 170, in check_feed
+    book = feed.fetch_book(q.token_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/data_feed.py", line 263, in fetch_book
+    return parse_book(get_json(f"{CLOB}/book", {"token_id": token_id}), token_id)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/data_feed.py", line 47, in get_json
+    raise RuntimeError(f"GET failed after {retries} tries: {url} ({last_err})")
+RuntimeError: GET failed after 3 tries: https://clob.polymarket.com/book?token_id=73503354416830145186408847690646379369043078590755687164254628069616152090390 (HTTP Error 404: Not Found)
+Events: 430  Outcomes: 25684
+Outcomes by category: {'sports': 20710, 'crypto': 1766, 'economics': 876, 'tech': 2332}
