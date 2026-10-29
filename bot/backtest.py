@@ -41,7 +41,8 @@ SUMMARY = os.path.join(ROOT, "data", "backtest_summary.json")
 HOUR = 3600
 SLIP = 0.01          # per side
 STALE_HOURS = 3      # a price older than this is treated as "no data this hour"
-PRICE_LAG = HOUR     # conservative: decisions at hour H use prices stamped H-1h or earlier
+PRICE_LAG = 0        # checked 2026-10-29: an hourly point stamped T holds the price AT T (it matched
+                     # the minute series at T, not at T+59min), so points <= H carry no lookahead
 GAP_PENALTY = 0.01   # extra cost when forced to exit with no fresh price
 
 
@@ -77,9 +78,8 @@ class Series:
         last_pt = None
         end = min(self.closed_t, pts[-1][0] + STALE_HOURS * HOUR)
         while h <= end:
-            # Only points stamped at least PRICE_LAG before h count. If Polymarket stamps an
-            # hourly bucket with its start time but fills it with the end price, this still
-            # never lets hour h see a price from after h (review finding #7).
+            # Only points stamped at or before h (minus PRICE_LAG) count (review finding #7: verified
+            # on live markets that a point's stamp is the time of its price).
             while i < len(pts) and pts[i][0] <= h - PRICE_LAG:
                 last_pt = pts[i]
                 i += 1
@@ -414,7 +414,7 @@ def write_report(s: dict, data: dict) -> None:
           "- Same-hour signals taken in a fixed random order (the live bot uses 24h volume).",
           "- Rules checked hourly; a stop can fill below -25% if the price jumps between hours.",
           "- Hourly prices are Polymarket's price history series, not executed trades.",
-          "- Decisions at hour H use prices stamped H-1h or earlier (conservative, avoids any 1-hour lookahead).",
+          "- Decisions at hour H use only prices stamped at or before H; checked on live markets that a stamp is the time of its price.",
           "- If a market has no fresh price when a time-based exit is due, it exits at the last known bid minus 1c.",
           "- Only events that fully closed are included, and game times are their final values (postponements included).",
           "- X5 (invalidation on wide spreads or disputes) is live-bot only; the backtest has no spread data.",
