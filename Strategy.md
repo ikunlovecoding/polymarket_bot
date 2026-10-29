@@ -78,3 +78,19 @@ If any of these happen, go back to the STRATEGY phase (Version B is the next can
 | Max hold | 7 days |
 | Pre-resolution exit | 12 hours |
 | Stakes | 3% normal / 5% high |
+
+---
+
+## Round 2 (2026-10-29): variants B, C, D — all failed in-sample
+Written down before running; same data, fees, slippage and liquidity filter as Version A. Full numbers: reports/backtest_round2.md.
+
+| Variant | Rule change | In-sample result (every signal, $30) |
+|---|---|---|
+| B | A + price up ≥ 5¢ in the past 24h | −16.9% per trade |
+| C | Buy favourites at 75–92¢, 1–7 days out, hold to resolution, −25% stop | −8.9% per trade |
+| D | A with a −50% stop | −14.7% per trade |
+
+What the data showed:
+- Favourites bought at an average 81.9¢ (after 1¢ slippage) won only 77.7% of the time at resolution: no favourite–longshot edge after costs.
+- 63% of C's stops were hit after the event had started (in-game swings); 46% of the stopped favourites went on to win anyway.
+- Conclusion: in these markets Polymarket prices look roughly accurate, so rules that use only Polymarket's own price lose to fees, slippage and gaps. An edge, if any, needs outside information.

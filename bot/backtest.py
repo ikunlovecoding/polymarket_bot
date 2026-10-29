@@ -112,6 +112,14 @@ class Series:
             prev = p
         return changes >= LIQ_MIN_CHANGES
 
+    def price_at_or_before(self, h: int, outcome: int, max_back_hours: int = STALE_HOURS) -> float | None:
+        """The price at hour h, or the nearest earlier one within a few hours (past only)."""
+        for back in range(max_back_hours + 1):
+            p = self.price(h - back * HOUR, outcome)
+            if p is not None:
+                return p
+        return None
+
     def price(self, h: int, outcome: int) -> float | None:
         p = self.prices.get(h)
         if p is None:
@@ -121,15 +129,38 @@ class Series:
 
 # ---------------------------------------------------------------- the simulation
 
+VARIANTS = {
+    # Each variant was written down BEFORE any of B/C/D was run (strategy phase, round 2).
+    "A": {"label": "A: price range 20-55c, +50% / -25%"},
+    "B": {"label": "B: A + momentum (up >= 5c in 24h)", "momentum": 0.05},
+    "C": {"label": "C: favourites 75-92c, 1-7 days out, hold to resolution, -25% stop",
+          "min_price": 0.75, "max_price": 0.92, "min_days": 1, "max_days": 7,
+          "tp": None, "max_hold": None, "pre_exit_h": None},
+    "D": {"label": "D: A with a wider -50% stop", "sl": 0.50},
+}
+
+
+def variant_params(cfg: dict, name: str = "A") -> dict:
+    """Strategy A's numbers from config.json, overridden by the chosen variant."""
+    f, e, x = cfg["filters"], cfg["entry"], cfg["exits"]
+    v = {"name": name, "min_price": e["min_price"], "max_price": e["max_price"],
+         "min_days": f["min_days_to_event"], "max_days": f["max_days_to_event"],
+         "tp": x["take_profit_mult"], "sl": x["stop_loss_mult"], "max_hold": x["max_hold_days"],
+         "pre_exit_h": x["exit_hours_before_event"], "momentum": None}
+    v.update({k: val for k, val in VARIANTS[name].items() if k != "label"})
+    v["label"] = VARIANTS[name]["label"]
+    return v
+
+
 def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end: int,
-             unlimited: bool = False, use_liquidity_filter: bool = True) -> dict:
+             unlimited: bool = False, use_liquidity_filter: bool = True, variant: str = "A") -> dict:
     """Replay hour by hour from `start` to `end` (unix seconds).
 
     unlimited=False: a $1,000 paper account with every risk limit (realistic).
     unlimited=True : every signal is taken at a fixed $30 stake, no limits (more trades,
                      used only for per-trade statistics).
     """
-    f, e, x, r = cfg["filters"], cfg["entry"], cfg["exits"], cfg["risk"]
+    v, r = variant_params(cfg, variant), cfg["risk"]
     bank = float(cfg["starting_bankroll"])
     cash, day, day_start_eq = bank, None, bank
     positions, trades, curve = [], [], []
@@ -150,7 +181,7 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
     h = hour_floor(start)
     while h <= end:
         # markets enter the active set 14 days before their event, leave after they close
-        while nxt < len(by_start) and by_start[nxt].event_t - f["max_days_to_event"] * 86400 <= h:
+        while nxt < len(by_start) and by_start[nxt].event_t - v["max_days"] * 86400 <= h:
             active.append(by_start[nxt])
             nxt += 1
         if h % (24 * HOUR) == 0:
@@ -169,8 +200,8 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                 proceeds = p["shares"] * final
             else:
                 px = s.price(h, k)
-                time_up = h - p["opened"] >= x["max_hold_days"] * 86400
-                near_event = h >= s.event_t - x["exit_hours_before_event"] * HOUR
+                time_up = v["max_hold"] is not None and h - p["opened"] >= v["max_hold"] * 86400
+                near_event = v["pre_exit_h"] is not None and h >= s.event_t - v["pre_exit_h"] * HOUR
                 if px is None:
                     # No fresh price. Price-based exits can't fire, but the time-based ones must,
                     # or the position would ride into resolution (review finding #1). Exit at the
@@ -182,9 +213,9 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                 else:
                     bid = max(0.0, px - SLIP)
                     p["last_bid"] = bid
-                    if bid >= p["entry"] * x["take_profit_mult"] - 1e-9:
+                    if v["tp"] is not None and bid >= p["entry"] * v["tp"] - 1e-9:
                         reason = "X1 take profit"
-                    elif bid <= p["entry"] * x["stop_loss_mult"] + 1e-9:
+                    elif bid <= p["entry"] * v["sl"] + 1e-9:
                         reason = "X2 stop loss"
                     elif time_up:
                         reason = "X3 time stop"
@@ -203,7 +234,7 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                            "outcome": s.rec["outcomes"][k], "opened": p["opened"], "closed": h,
                            "entry": p["entry"], "exit": exit_px, "shares": p["shares"], "cost": p["cost"],
                            "pnl": pnl, "pnl_pct": pnl / p["cost"] * 100, "reason": reason,
-                           "event_t": s.event_t, "fee_rate": s.fee_rate})
+                           "event_t": s.event_t, "fee_rate": s.fee_rate, "tp": v["tp"], "sl": v["sl"]})
 
         # ---- daily loss bookkeeping (UTC day)
         eq = equity(h)
@@ -218,7 +249,7 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                 if s.market_id in traded or s.event_id in held_events:
                     continue
                 days = (s.event_t - h) / 86400
-                if not (f["min_days_to_event"] <= days <= f["max_days_to_event"]) or h >= s.closed_t:
+                if not (v["min_days"] <= days <= v["max_days"]) or h >= s.closed_t:
                     continue
                 if use_liquidity_filter and not s.looks_liquid(h):
                     continue
@@ -227,8 +258,13 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                     if px is None:
                         continue
                     ask = round(px + SLIP, 6)
-                    if e["min_price"] - 1e-9 <= ask <= e["max_price"] + 1e-9:
-                        cands.append((s.order_key, k, s, ask))
+                    if not (v["min_price"] - 1e-9 <= ask <= v["max_price"] + 1e-9):
+                        continue
+                    if v["momentum"] is not None:
+                        before = s.price_at_or_before(h - 24 * HOUR, k)
+                        if before is None or px - before < v["momentum"] - 1e-9:
+                            continue
+                    cands.append((s.order_key, k, s, ask))
             # Random-but-fixed order across markets; within one market the cheaper outcome first,
             # matching the live bot's tie-break (review finding #9).
             cands.sort(key=lambda c: (c[0], c[3]))
@@ -266,19 +302,24 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                        "pnl": p["shares"] * p["last_bid"] - p["cost"],
                        "pnl_pct": (p["shares"] * p["last_bid"] - p["cost"]) / p["cost"] * 100,
                        "reason": "Open at end (marked)", "event_t": p["series"].event_t,
-                       "fee_rate": p["series"].fee_rate})
+                       "fee_rate": p["series"].fee_rate, "tp": v["tp"], "sl": v["sl"]})
         cash += p["shares"] * p["last_bid"]
     return {"trades": trades, "curve": curve, "final_equity": cash if not unlimited else None}
 
 
 # ---------------------------------------------------------------- statistics
 
-def planned_breakeven(entry: float, fee_rate: float, tp: float = 1.5, sl: float = 0.75) -> float:
-    """Win rate needed to break even if every trade ends exactly at +50% or -25% of the entry
-    price, after fees on both sides. Uses only what is known when the trade is opened."""
+def planned_breakeven(entry: float, fee_rate: float, tp: float | None = 1.5, sl: float = 0.75) -> float:
+    """Win rate needed to break even if every trade ends exactly at its take-profit (or, with no
+    take-profit, a win at resolution = $1 with no exit fee) or at its stop, after fees.
+    Uses only what is known when the trade is opened."""
     cost = entry + taker_fee(1, entry, fee_rate)
-    win_bid, loss_bid = min(0.999, entry * tp), entry * sl
-    win = win_bid - taker_fee(1, win_bid, fee_rate) - cost
+    loss_bid = entry * sl
+    if tp is None:
+        win = 1.0 - cost
+    else:
+        win_bid = min(0.999, entry * tp)
+        win = win_bid - taker_fee(1, win_bid, fee_rate) - cost
     loss = loss_bid - taker_fee(1, loss_bid, fee_rate) - cost
     return abs(loss) / (win + abs(loss)) if win > 0 else 1.0
 
@@ -302,7 +343,8 @@ def summarize(trades: list, curve: list, bank: float) -> dict:
         months = (curve[-1][0] - curve[0][0]) / (30.44 * 86400)
     # Break-even fixed in advance from each trade's entry price, fee rate and slippage, not from
     # the results themselves (review finding #5). Averaged over the trades actually taken.
-    be = sum(planned_breakeven(t["entry"], t.get("fee_rate", 0.05)) for t in trades) / n * 100 if n else None
+    be = sum(planned_breakeven(t["entry"], t.get("fee_rate", 0.05), t.get("tp", 1.5), t.get("sl", 0.75))
+             for t in trades) / n * 100 if n else None
     return {
         "trades": n,
         "win_rate": round(len(wins) / n * 100, 1) if n else 0.0,
@@ -456,5 +498,110 @@ def write_report(s: dict, data: dict) -> None:
         fh.write("\n".join(L) + "\n")
 
 
+# ---------------------------------------------------------------- round 2: variants A-D
+
+def is_gate(port: dict, allsig: dict) -> list:
+    """In-sample gate, fixed in advance: both the account and the per-trade average must make money."""
+    fails = []
+    if allsig["expectancy"] <= 0:
+        fails.append(f"in-sample average P&L per trade {allsig['expectancy_pct']:+.2f}% <= 0")
+    if port["total_pnl"] <= 0:
+        fails.append(f"in-sample account P&L ${port['total_pnl']:+,.2f} <= 0")
+    return fails
+
+
+def run_round2(data: dict, cfg: dict, split_iso: str, variants: list) -> dict:
+    bank = float(cfg["starting_bankroll"])
+    series = [s for s in (Series(r) for r in data["markets"]) if s.prices]
+    start = ts(data["start"] + "T00:00:00Z") - 14 * 86400
+    end = ts(data["end"] + "T23:00:00Z")
+    split = ts(split_iso + "T00:00:00Z")
+    ins = [s for s in series if s.event_t < split]
+    oos = [s for s in series if s.event_t >= split]
+    out = {}
+    for name in variants:
+        r = {"label": VARIANTS[name]["label"]}
+        p_is = simulate(ins, cfg, cfg["stakes"]["normal_pct"], start, split, variant=name)
+        a_is = simulate(ins, cfg, 0, start, split, unlimited=True, variant=name)
+        r["in_sample"] = {"portfolio": summarize(p_is["trades"], p_is["curve"], bank),
+                          "all_signals": summarize(a_is["trades"], [], bank),
+                          "by_category": breakdown(a_is["trades"], lambda t: t["category"]),
+                          "by_exit": breakdown(a_is["trades"], lambda t: t["reason"].split(" (")[0])}
+        r["in_sample_fails"] = is_gate(r["in_sample"]["portfolio"], r["in_sample"]["all_signals"])
+        if not r["in_sample_fails"]:
+            p_os = simulate(oos, cfg, cfg["stakes"]["normal_pct"], split - 14 * 86400, end, variant=name)
+            a_os = simulate(oos, cfg, 0, split - 14 * 86400, end, unlimited=True, variant=name)
+            r["out_of_sample"] = {"portfolio": summarize(p_os["trades"], p_os["curve"], bank),
+                                  "all_signals": summarize(a_os["trades"], [], bank),
+                                  "by_category": breakdown(a_os["trades"], lambda t: t["category"]),
+                                  "by_exit": breakdown(a_os["trades"], lambda t: t["reason"].split(" (")[0])}
+            ok, fails = verdict(r["out_of_sample"]["portfolio"], r["out_of_sample"]["all_signals"])
+            r["out_of_sample_fails"] = fails
+            r["status"] = "PASSED in-sample and out-of-sample" if ok else "FAILED out-of-sample"
+        else:
+            r["status"] = "FAILED in-sample (not run out-of-sample)"
+        out[name] = r
+    return out
+
+
+def write_round2(res: dict, data: dict, split_iso: str, path: str) -> None:
+    L = ["# Backtest round 2: variants A-D",
+         f"Data: {len(data['markets']):,} resolved markets, events {data['start']} to {data['end']}. "
+         f"In-sample before {split_iso}, out-of-sample from {split_iso}.",
+         "Rules fixed before running: a variant must make money in-sample (account AND per-trade average) "
+         "to be tested out-of-sample, then meet Strategy.md section 8 out-of-sample. "
+         "A variant that passes both still needs the untouched Jan-Apr 2026 data before paper trading.",
+         "", "## Verdicts", "| Variant | Status |", "|---|---|"]
+    for n, r in res.items():
+        L.append(f"| {r['label']} | **{r['status']}** |")
+    hdr = ["| Period | Run | Trades | Win rate | Break-even | Avg win | Avg loss | Avg per trade | Net P&L | Per month | Max DD |",
+           "|---|---|---|---|---|---|---|---|---|---|---|"]
+    for n, r in res.items():
+        L += ["", f"## {r['label']}"]
+        for f_ in r.get("in_sample_fails", []) + r.get("out_of_sample_fails", []):
+            L.append(f"- {f_}")
+        L += [""] + hdr
+        for per in ("in_sample", "out_of_sample"):
+            if per not in r:
+                continue
+            for run, key in (("$1,000 account, 3%", "portfolio"), ("every signal, $30", "all_signals")):
+                m = r[per][key]
+                L.append(f"| {per.replace('_', '-')} | {run} | {m['trades']:,} | {m['win_rate']}% | {m['breakeven_win_rate']}% | "
+                         f"{m['avg_win_pct']:+}% | {m['avg_loss_pct']:+}% | {m['expectancy_pct']:+}% | ${m['total_pnl']:+,.2f} | "
+                         f"{'' if key != 'portfolio' or m['monthly_return_pct'] is None else str(m['monthly_return_pct']) + '%'} | "
+                         f"{str(m['max_drawdown_pct']) + '%' if key == 'portfolio' else ''} |")
+        for per in ("in_sample", "out_of_sample"):
+            if per not in r:
+                continue
+            L += ["", f"{per.replace('_', '-')}, every signal:"]
+            L += table(r[per]["by_category"], "Category") + [""] + table(r[per]["by_exit"], "Exit")
+    L += ["", "Same assumptions as reports/backtest.md (1c slippage per side, market fees, past-only liquidity filter, "
+          "hourly checks). Variant C holds through resolution: a win pays $1 with no exit fee; prices more than "
+          "12h after the event are not in the data, so a stop can't fire in that last stretch."]
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(L) + "\n")
+
+
+def main_round2(argv=None) -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dataset", default=DATASET)
+    ap.add_argument("--split", default="2026-08-28")
+    ap.add_argument("--variants", default="A,B,C,D")
+    ap.add_argument("--out", default=os.path.join(ROOT, "reports", "backtest_round2.md"))
+    args = ap.parse_args(argv)
+    cfg = load_config()
+    with gzip.open(args.dataset, "rt", encoding="utf-8") as fh:
+        data = json.load(fh)
+    res = run_round2(data, cfg, args.split, args.variants.split(","))
+    write_round2(res, data, args.split, args.out)
+    with open(args.out.replace(".md", ".json"), "w", encoding="utf-8") as fh:
+        json.dump(res, fh, indent=2)
+    for n, r in res.items():
+        print(n, r["status"], r.get("in_sample_fails"), r.get("out_of_sample_fails"))
+    return 0
+
+
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "round2":
+        sys.exit(main_round2(sys.argv[2:]))
     sys.exit(main())

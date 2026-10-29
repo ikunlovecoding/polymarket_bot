@@ -159,3 +159,48 @@ class TestLiquidityFilter(unittest.TestCase):
         self.assertTrue(t)
         # price changes every 3h, so the 3rd change (the minimum) is at hour 9
         self.assertGreaterEqual(t[0]["opened"], T0 + 9 * HOUR)
+
+
+class TestVariants(unittest.TestCase):
+    """Variants B-D follow their own written rules (strategy phase, round 2)."""
+
+    def setUp(self):
+        self.cfg = load_config()
+
+    def run_v(self, rec, v):
+        return simulate([Series(rec)], self.cfg, 0.03, T0, T0 + 12 * DAY, unlimited=True,
+                        use_liquidity_filter=False, variant=v)["trades"]
+
+    def test_b_needs_momentum(self):
+        flat_path = flat(0.40, 240)
+        self.assertEqual(self.run_v(market("b1", flat_path, event_day=6), "B"), [])
+        rising = [(h, 0.30 if h < 30 else 0.40) for h in range(240)]   # +10c over a day
+        t = self.run_v(market("b2", rising, event_day=6), "B")
+        self.assertTrue(t)
+        self.assertGreaterEqual(t[0]["opened"], T0 + 30 * HOUR)
+
+    def test_c_holds_favourite_to_resolution(self):
+        t = self.run_v(market("c1", flat(0.84, 240), event_day=5, final=(1.0, 0.0)), "C")[0]
+        self.assertEqual(t["outcome"], "Yes")
+        self.assertEqual(t["reason"], "Settled at resolution")
+        self.assertAlmostEqual(t["exit"], 1.0)
+        self.assertGreater(t["pnl"], 0)
+        self.assertGreaterEqual(t["opened"], T0 + 5 * DAY - 7 * DAY)   # within 7 days of event
+
+    def test_c_stop_and_no_entry_too_early(self):
+        path = flat(0.84, 3 * 24) + [(h, 0.55) for h in range(72, 240)]
+        t = self.run_v(market("c2", path, event_day=6), "C")[0]
+        self.assertEqual(t["reason"], "X2 stop loss")
+        # event 10 days out: C waits until it is 7 days away
+        t = self.run_v(market("c3", flat(0.84, 300), event_day=10), "C")[0]
+        self.assertGreaterEqual(t["opened"], T0 + 3 * DAY)
+
+    def test_d_wider_stop(self):
+        path = flat(0.40, 5) + [(h, 0.28) for h in range(5, 240)]     # -30%: A stops, D does not
+        self.assertEqual(self.run_v(market("d1", path, event_day=5), "A")[0]["reason"], "X2 stop loss")
+        self.assertNotEqual(self.run_v(market("d2", path, event_day=5), "D")[0]["reason"], "X2 stop loss")
+
+    def test_breakeven_hold_to_resolution(self):
+        from bot.backtest import planned_breakeven
+        # buy at 0.85 no fee: win +0.15, loss at 0.6375 = -0.2125 -> 58.6%
+        self.assertAlmostEqual(planned_breakeven(0.85, 0.0, None, 0.75) * 100, 58.6, delta=0.2)
