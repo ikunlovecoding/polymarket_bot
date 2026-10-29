@@ -162,18 +162,32 @@ def check_feed(cfg: dict) -> int:
     for q in quotes:
         by_cat[q.category] = by_cat.get(q.category, 0) + 1
     print("Outcomes by category:", by_cat)
-    priced = [q for q in quotes if q.best_ask is not None and q.best_bid is not None]
-    if not priced:
-        print("FAIL: no quotes with prices")
+    # Only markets that are actually trading have an order book.
+    live = [q for q in quotes if q.best_ask is not None and q.best_bid is not None and q.active
+            and not q.closed and q.accepting_orders and not q.uma_status and 0.05 < q.best_ask < 0.95]
+    if not live:
+        print("FAIL: no tradable quotes with prices")
         return 1
-    q = max(priced, key=lambda x: x.volume_24h)
-    book = feed.fetch_book(q.token_id)
-    print(f"Sample: {q.question} [{q.outcome}] Gamma bid/ask {q.best_bid}/{q.best_ask} | "
-          f"book bid/ask {book.best_bid}/{book.best_ask} | levels {len(book.bids)}/{len(book.asks)}")
-    hist = feed.fetch_price_history(q.token_id)
-    print(f"Price history points: {len(hist)}")
-    ok = book.best_bid is not None and book.best_ask is not None and book.best_bid < book.best_ask
-    print("FEED OK" if ok else "FAIL: order book looks wrong")
+    # One sample per category: the busiest tradable outcome in each.
+    samples = {}
+    for q in sorted(live, key=lambda x: -x.volume_24h):
+        samples.setdefault(q.category, q)
+    good = 0
+    for cat, q in samples.items():
+        try:
+            book = feed.fetch_book(q.token_id)
+            hist = feed.fetch_price_history(q.token_id)
+        except Exception as err:
+            print(f"[{cat}] {q.question} [{q.outcome}]: ERROR {err}")
+            continue
+        sane = book.best_bid is not None and book.best_ask is not None and book.best_bid < book.best_ask
+        close = sane and abs(book.best_ask - q.best_ask) <= 0.02 and abs(book.best_bid - q.best_bid) <= 0.02
+        good += sane and close
+        print(f"[{cat}] {q.question} [{q.outcome}] | Gamma bid/ask {q.best_bid}/{q.best_ask} | "
+              f"book bid/ask {book.best_bid}/{book.best_ask} ({len(book.bids)}/{len(book.asks)} levels) | "
+              f"fee {q.fee_rate} | history points {len(hist)} | {'OK' if close else 'MISMATCH'}")
+    ok = good >= max(1, len(samples) - 1)  # allow one sample to move between the two reads
+    print(f"FEED OK ({good}/{len(samples)} samples match)" if ok else f"FAIL: only {good}/{len(samples)} samples match")
     return 0 if ok else 1
 
 

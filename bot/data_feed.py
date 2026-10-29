@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import json
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass, field
@@ -41,10 +42,15 @@ def get_json(url: str, params: dict | None = None, retries: int = 3, timeout: in
             req = urllib.request.Request(url, headers={"User-Agent": "paper-bot/1.0 (read-only)"})
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as err:
+            last_err = err
+            if 400 <= err.code < 500 and err.code != 429:
+                break  # "not found" / "bad request" won't change on retry
+            time.sleep(2 * (attempt + 1))
         except Exception as err:  # network error, timeout, bad JSON
             last_err = err
             time.sleep(2 * (attempt + 1))
-    raise RuntimeError(f"GET failed after {retries} tries: {url} ({last_err})")
+    raise RuntimeError(f"GET failed: {url} ({last_err})")
 
 
 # ---------------------------------------------------------------- data shapes
