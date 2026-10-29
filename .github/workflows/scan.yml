@@ -1,0 +1,64 @@
+# Runs the paper bot on GitHub's servers, so it keeps going with your laptop closed.
+# - Every hour (at minute 7) it runs one scan and saves the results back into this repo.
+# - "Run workflow" on the Actions tab lets you start a check by hand.
+# Nothing here uses a wallet, key or secret: the bot only reads public data.
+
+name: paper-bot
+
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "What to run"
+        type: choice
+        options: [check-feed, dry-run, scan]
+        default: check-feed
+
+permissions:
+  contents: write   # needed only to save state/ledger/brief back to this repo
+
+concurrency:
+  group: paper-bot  # never two scans at once (they would fight over the account file)
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run tests (stop if anything is broken)
+        run: python -m unittest discover -s tests
+
+      - name: Check the data feed
+        if: github.event_name == 'workflow_dispatch' && inputs.task == 'check-feed'
+        run: python -m bot.run --check-feed
+
+      - name: Dry run (prints signals, saves nothing)
+        if: github.event_name == 'workflow_dispatch' && inputs.task == 'dry-run'
+        run: python -m bot.run --dry-run
+
+      - name: Scan
+        if: github.event_name == 'schedule' || inputs.task == 'scan'
+        run: python -m bot.run
+
+      - name: Save results to the repo
+        if: github.event_name == 'schedule' || inputs.task == 'scan'
+        run: |
+          git config user.name "paper-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data reports Trade_Ledger.md Learning.md
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+          else
+            git commit -m "scan $(date -u +'%Y-%m-%d %H:%M') UTC"
+            git pull --rebase
+            git push
+          fi

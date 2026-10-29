@@ -1,0 +1,63 @@
+{
+  "_comment": "All Strategy Version A settings live here. Change values here, never inside the code. See Strategy.md.",
+
+  "mode": "scan_only",
+  "_mode_help": "scan_only = read data and list signals, no paper trades. paper = place paper trades. There is no live mode: the code cannot place real orders.",
+
+  "kill_switch": false,
+  "_kill_switch_help": "true = no new paper trades at all. Open paper positions are still exited by their rules.",
+
+  "starting_bankroll": 1000.0,
+
+  "categories": {
+    "sports":    ["sports"],
+    "crypto":    ["crypto"],
+    "economics": ["economy", "economics", "fed-rates", "inflation", "cpi"],
+    "tech":      ["tech", "ai"]
+  },
+  "excluded_tags": ["politics", "elections", "geopolitics"],
+
+  "filters": {
+    "min_days_to_event": 3,
+    "max_days_to_event": 14,
+    "min_volume_24h": 5000,
+    "max_spread": 0.03,
+    "require_resolution_source": true
+  },
+
+  "entry": {
+    "min_price": 0.20,
+    "max_price": 0.55
+  },
+
+  "stakes": {
+    "normal_pct": 0.03,
+    "high_pct": 0.05,
+    "high_confidence_top_fraction": 0.20,
+    "min_shares": 5
+  },
+
+  "exits": {
+    "take_profit_mult": 1.50,
+    "stop_loss_mult": 0.75,
+    "max_hold_days": 7,
+    "exit_hours_before_event": 12,
+    "invalidation_spread": 0.10
+  },
+
+  "risk": {
+    "daily_loss_limit": 100.0,
+    "max_exposure_pct": 0.30
+  },
+
+  "fees": {
+    "_help": "Used only when a market does not publish its own feeSchedule. Each market's own rate is preferred.",
+    "default_rates": {"sports": 0.05, "crypto": 0.07, "economics": 0.05, "tech": 0.04}
+  },
+
+  "feed": {
+    "events_per_page": 100,
+    "max_pages_per_tag": 5,
+    "fetch_end_window_days": 30
+  }
+}
