@@ -42,30 +42,51 @@ def _iso(dt: datetime) -> str:
     return dt.isoformat().replace("+00:00", "Z")
 
 
+MAX_OFFSET = 1900  # Gamma refuses offsets above ~2000 (HTTP 422)
+
+
+def _fetch_window(tag: str, t: datetime, t2: datetime) -> list[dict] | None:
+    """All closed events in [t, t2). None if the window holds too many to page through."""
+    out, offset = [], 0
+    while True:
+        batch = feed.get_json(f"{feed.GAMMA}/events", {
+            "closed": "true", "tag_slug": tag, "limit": 100, "offset": offset,
+            "end_date_min": _iso(t), "end_date_max": _iso(t2),
+            "order": "endDate", "ascending": "true"})
+        out += batch or []
+        if not batch or len(batch) < 100:
+            return out
+        offset += 100
+        if offset > MAX_OFFSET:
+            return None
+
+
 def list_closed_events(tag: str, start: datetime, end: datetime) -> list[dict]:
-    """Closed events with this tag whose end date falls in [start, end + 10 days], week by week."""
+    """Closed events with this tag whose end date falls in [start, end + 10 days].
+
+    Goes one day at a time and splits a window in half whenever it holds too many events.
+    """
     events, seen = [], set()
-    t = start
     stop = end + timedelta(days=10)  # sports end dates can trail the game by a week
+    windows = []
+    t = start
     while t < stop:
-        t2 = min(t + timedelta(days=7), stop)
-        offset = 0
-        while True:
-            batch = feed.get_json(f"{feed.GAMMA}/events", {
-                "closed": "true", "tag_slug": tag, "limit": 100, "offset": offset,
-                "end_date_min": _iso(t), "end_date_max": _iso(t2),
-                "order": "endDate", "ascending": "true"})
-            for ev in batch or []:
-                if str(ev.get("id")) not in seen:
-                    seen.add(str(ev.get("id")))
-                    events.append(ev)
-            if not batch or len(batch) < 100:
-                break
-            offset += 100
-            if offset > 20000:
-                print(f"  warning: >20k events in {tag} {t.date()}..{t2.date()}, truncated", file=sys.stderr)
-                break
-        t = t2
+        windows.append((t, min(t + timedelta(days=1), stop)))
+        t += timedelta(days=1)
+    while windows:
+        a, b = windows.pop(0)
+        got = _fetch_window(tag, a, b)
+        if got is None:
+            if b - a <= timedelta(minutes=30):
+                print(f"  warning: too many {tag} events in {a}..{b}; some skipped", file=sys.stderr)
+                continue
+            mid = a + (b - a) / 2
+            windows[:0] = [(a, mid), (mid, b)]
+            continue
+        for ev in got:
+            if str(ev.get("id")) not in seen:
+                seen.add(str(ev.get("id")))
+                events.append(ev)
     return events
 
 
