@@ -1,5 +1,5 @@
 # Strategy.md: Version A "Price Range"
-Chosen: 2026-10-29 (STRATEGY phase). Status: **untested.** The backtest decides whether this goes to paper trading.
+Chosen: 2026-10-29 (STRATEGY phase). Status: **FAILED the backtest on 2026-10-29** (see reports/backtest.md): out-of-sample win rate ~19% vs ~41% break-even, net loss, drawdown 50%. Not used for paper trading.
 Context: see Market_Context.md and Market_Notes.md.
 
 ---

@@ -32,7 +32,8 @@ class TestBacktest(unittest.TestCase):
 
     def run_one(self, rec, unlimited=True):
         s = Series(rec)
-        return simulate([s], self.cfg, 0.03, T0, T0 + 12 * DAY, unlimited=unlimited)["trades"]
+        return simulate([s], self.cfg, 0.03, T0, T0 + 12 * DAY, unlimited=unlimited,
+                        use_liquidity_filter=False)["trades"]
 
     def test_take_profit(self):
         # Yes trades at 0.30 (ask 0.31). At hour 10 it jumps to 0.60 -> bid 0.59 >= 0.31*1.5=0.465.
@@ -86,7 +87,7 @@ class TestBacktest(unittest.TestCase):
 
     def test_portfolio_one_per_event_and_exposure(self):
         recs = [market(str(i), flat(0.40, 240), event="same" if i < 3 else None) for i in range(20)]
-        out = simulate([Series(r) for r in recs], self.cfg, 0.03, T0, T0 + 12 * DAY)
+        out = simulate([Series(r) for r in recs], self.cfg, 0.03, T0, T0 + 12 * DAY, use_liquidity_filter=False)
         opened_same = [t for t in out["trades"] if t["market_id"] in ("0", "1", "2")]
         self.assertEqual(len(opened_same), 1)          # one position per event
         # 30% cap with 3% stakes -> at most 10 open at once
@@ -118,7 +119,8 @@ class TestReviewFixesBacktest(unittest.TestCase):
         # NOT ride to resolution.
         path = flat(0.40, 3 * 24)
         rec = market("gap", path, event_day=5, final=(1.0, 0.0))
-        t = simulate([Series(rec)], self.cfg, 0.03, T0, T0 + 8 * DAY, unlimited=True)["trades"][0]
+        t = simulate([Series(rec)], self.cfg, 0.03, T0, T0 + 8 * DAY, unlimited=True,
+                     use_liquidity_filter=False)["trades"][0]
         self.assertEqual(t["reason"], "X4 pre-resolution exit (no fresh price)")
         self.assertEqual(t["closed"], T0 + 5 * DAY - 12 * HOUR)
         self.assertLess(abs(t["pnl_pct"]), 15)
@@ -132,5 +134,28 @@ class TestReviewFixesBacktest(unittest.TestCase):
 
     def test_cheaper_outcome_first_within_market(self):           # finding 9
         t = simulate([Series(market("tie", flat(0.52, 240), event_day=5))], self.cfg, 0.03,
-                     T0, T0 + 8 * DAY, unlimited=True)["trades"][0]
+                     T0, T0 + 8 * DAY, unlimited=True, use_liquidity_filter=False)["trades"][0]
         self.assertEqual(t["outcome"], "No")                  # No ask 0.49 < Yes ask 0.53
+
+
+class TestLiquidityFilter(unittest.TestCase):
+    def setUp(self):
+        self.cfg = load_config()
+
+    def _trades(self, path):
+        return simulate([Series(market("q", path, event_day=6))], self.cfg, 0.03, T0, T0 + 8 * DAY,
+                        unlimited=True)["trades"]
+
+    def test_stuck_placeholder_price_is_skipped(self):
+        self.assertEqual(self._trades(flat(0.50, 200)), [])     # 0.50 for days = empty book
+
+    def test_flip_flopping_price_is_skipped(self):
+        path = [(h, 0.45 if h % 2 else 0.15) for h in range(200)]   # wide-book noise
+        self.assertEqual(self._trades(path), [])
+
+    def test_normal_trading_market_is_entered(self):
+        path = [(h, 0.40 + 0.01 * ((h // 3) % 3)) for h in range(200)]  # small real moves
+        t = self._trades(path)
+        self.assertTrue(t)
+        # price changes every 3h, so the 3rd change (the minimum) is at hour 9
+        self.assertGreaterEqual(t[0]["opened"], T0 + 9 * HOUR)

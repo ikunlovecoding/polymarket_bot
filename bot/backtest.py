@@ -44,6 +44,8 @@ STALE_HOURS = 3      # a price older than this is treated as "no data this hour"
 PRICE_LAG = 0        # checked 2026-10-29: an hourly point stamped T holds the price AT T (it matched
                      # the minute series at T, not at T+59min), so points <= H carry no lookahead
 GAP_PENALTY = 0.01   # extra cost when forced to exit with no fresh price
+LIQ_MIN_CHANGES = 3  # liquidity proxy: price changed at least 3 times in the past 24h ...
+LIQ_MAX_JUMP = 0.08  # ... and never moved more than 8c in a single hour
 
 
 def ts(iso: str) -> int:
@@ -87,6 +89,29 @@ class Series:
                 self.prices[h] = last_pt[1]
             h += HOUR
 
+    def looks_liquid(self, h: int) -> bool:
+        """Stand-in for F3 (24h volume) and F4 (spread), which history doesn't record.
+
+        Uses ONLY the 24 hours up to and including h (no lookahead). A market counts as
+        tradable when its price changed at least LIQ_MIN_CHANGES times in that window (someone
+        is actually trading) and never jumped more than LIQ_MAX_JUMP in one hour (big
+        back-and-forth jumps are the mid-price of an empty, wide book, not real prices).
+        Thresholds were fixed before looking at results and apply to both periods.
+        """
+        changes, prev = 0, None
+        for hh in range(h - 24 * HOUR, h + HOUR, HOUR):
+            p = self.prices.get(hh)
+            if p is None:
+                continue
+            if prev is not None:
+                d = abs(p - prev)
+                if d > LIQ_MAX_JUMP + 1e-9:
+                    return False
+                if d > 1e-9:
+                    changes += 1
+            prev = p
+        return changes >= LIQ_MIN_CHANGES
+
     def price(self, h: int, outcome: int) -> float | None:
         p = self.prices.get(h)
         if p is None:
@@ -97,7 +122,7 @@ class Series:
 # ---------------------------------------------------------------- the simulation
 
 def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end: int,
-             unlimited: bool = False) -> dict:
+             unlimited: bool = False, use_liquidity_filter: bool = True) -> dict:
     """Replay hour by hour from `start` to `end` (unix seconds).
 
     unlimited=False: a $1,000 paper account with every risk limit (realistic).
@@ -194,6 +219,8 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                     continue
                 days = (s.event_t - h) / 86400
                 if not (f["min_days_to_event"] <= days <= f["max_days_to_event"]) or h >= s.closed_t:
+                    continue
+                if use_liquidity_filter and not s.looks_liquid(h):
                     continue
                 for k in (0, 1):
                     px = s.price(h, k)
@@ -354,11 +381,13 @@ def main(argv=None) -> int:
         port = simulate(ss, cfg, cfg["stakes"]["normal_pct"], a, b)
         port5 = simulate(ss, cfg, cfg["stakes"]["high_pct"], a, b)
         allsig = simulate(ss, cfg, 0, a, b, unlimited=True)
+        allsig_nf = simulate(ss, cfg, 0, a, b, unlimited=True, use_liquidity_filter=False)
         results[name] = {
             "markets": len(ss),
             "portfolio": summarize(port["trades"], port["curve"], bank),
             "portfolio_5pct": summarize(port5["trades"], port5["curve"], bank),
             "all_signals": summarize(allsig["trades"], [], bank),
+            "all_signals_no_liquidity_filter": summarize(allsig_nf["trades"], [], bank),
             "by_category": breakdown(allsig["trades"], lambda t: t["category"]),
             "by_exit": breakdown(allsig["trades"], lambda t: t["reason"].split(" ")[0] if t["reason"][0] == "X" else t["reason"]),
             "by_price": breakdown(allsig["trades"], price_bucket),
@@ -395,13 +424,14 @@ def write_report(s: dict, data: dict) -> None:
     L += hdr
     for name in ("in_sample", "out_of_sample"):
         for label, key in (("$1,000 account, 3% stakes", "portfolio"), ("$1,000 account, 5% stakes", "portfolio_5pct"),
-                           ("every signal, $30 each", "all_signals")):
+                           ("every signal, $30 each", "all_signals"),
+                           ("every signal, no liquidity filter", "all_signals_no_liquidity_filter")):
             m = R[name][key]
             L.append(f"| {name.replace('_', '-')}: {label} | {R[name]['markets']:,} | {m['trades']:,} | {m['win_rate']}% | "
                      f"{m['breakeven_win_rate']}% | ${m['avg_win']} ({m['avg_win_pct']:+}%) | ${m['avg_loss']} ({m['avg_loss_pct']:+}%) | "
                      f"{m['risk_reward']} | ${m['total_pnl']:+,.2f} | {m['return_pct']:+}% | "
                      f"{'' if m['monthly_return_pct'] is None else str(m['monthly_return_pct']) + '%'} | "
-                     f"{'' if key == 'all_signals' else str(m['max_drawdown_pct']) + '%'} |")
+                     f"{'' if key.startswith('all_signals') else str(m['max_drawdown_pct']) + '%'} |")
     for name in ("in_sample", "out_of_sample"):
         L += ["", f"### {name.replace('_', '-')}: every signal, broken down"]
         L += table(R[name]["by_category"], "Category") + [""]
@@ -412,6 +442,8 @@ def write_report(s: dict, data: dict) -> None:
           "- 24h volume and spread can't be checked historically; markets with under $5,000 total volume are excluded.",
           "- All stakes 3% (confidence needs 24h volume). A 5% run is shown for comparison.",
           "- Same-hour signals taken in a fixed random order (the live bot uses 24h volume).",
+          "- In place of F3/F4, an entry needs the price to have changed >= 3 times in the past 24h with no single-hour jump > 8c "
+          "(only past prices are used). The run without this filter is shown for comparison.",
           "- Rules checked hourly; a stop can fill below -25% if the price jumps between hours.",
           "- Hourly prices are Polymarket's price history series, not executed trades.",
           "- Decisions at hour H use only prices stamped at or before H; checked on live markets that a stamp is the time of its price.",
