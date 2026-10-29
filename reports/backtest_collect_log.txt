@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/backtest_collect.py", line 188, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/backtest_collect.py", line 141, in main
+    evs = list_closed_events(tag, start, end)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/backtest_collect.py", line 54, in list_closed_events
+    batch = feed.get_json(f"{feed.GAMMA}/events", {
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/data_feed.py", line 53, in get_json
+    raise RuntimeError(f"GET failed: {url} ({last_err})")
+RuntimeError: GET failed: https://gamma-api.polymarket.com/events?closed=true&tag_slug=sports&limit=100&offset=2100&end_date_min=2026-04-28T00%3A00%3A00Z&end_date_max=2026-05-05T00%3A00%3A00Z&order=endDate&ascending=true (HTTP Error 422: Unknown)
