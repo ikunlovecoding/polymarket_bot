@@ -192,6 +192,9 @@ def stage_history(args) -> int:
         chosen += rs[: args.cap]
         print(f"category {cat}: {len(rs)} usable, using {min(len(rs), args.cap)}", flush=True)
 
+    # Mix categories so that, if the time budget runs out, every category loses markets
+    # evenly instead of the last one in the list (review finding #10).
+    chosen.sort(key=lambda r: sample_key(r["market_id"]))
     deadline = time.time() + args.max_minutes * 60
     t0, done, failed, skipped = time.time(), 0, 0, 0
     with ThreadPoolExecutor(max_workers=args.threads) as pool:

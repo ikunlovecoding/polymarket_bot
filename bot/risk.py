@@ -18,7 +18,9 @@ def stake_for(confidence: str, equity: float, cfg: dict) -> float:
 
 def open_exposure(state: dict) -> float:
     """Money tied up in open positions, at what we paid (fees included)."""
-    return round(sum(p["cost"] for p in state["positions"]), 6)
+    # After a partial sale only the unsold share of the cost is still at risk.
+    return round(sum(p["cost"] * p["shares"] / p["orig_shares"] if p.get("orig_shares") else p["cost"]
+                     for p in state["positions"]), 6)
 
 
 def daily_pnl(state: dict, equity: float) -> float:

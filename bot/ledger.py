@@ -100,33 +100,49 @@ def open_position(state: dict, quote, fill, confidence: str, stake: float, now: 
     return pos
 
 
+def record_partial_exit(state: dict, pos: dict, fill, reason: str) -> None:
+    """A sale that only partly filled: bank the cash, keep the rest of the position open,
+    and remember the reason so the next scan keeps selling. One trade = one ledger record."""
+    pos.setdefault("orig_shares", pos["shares"])
+    pos["partial_shares"] = round(pos.get("partial_shares", 0.0) + fill.shares, 6)
+    pos["partial_gross"] = round(pos.get("partial_gross", 0.0) + fill.gross, 6)
+    pos["partial_proceeds"] = round(pos.get("partial_proceeds", 0.0) + fill.net_proceeds, 6)
+    pos["partial_fees"] = round(pos.get("partial_fees", 0.0) + fill.fee, 6)
+    pos["shares"] = round(pos["shares"] - fill.shares, 6)
+    pos["pending_exit"] = reason
+    state["cash"] = round(state["cash"] + fill.net_proceeds, 6)
+
+
 def close_position(state: dict, pos: dict, shares: float, exit_price: float, proceeds: float,
                    fee: float, reason: str, now: datetime) -> dict:
-    """Close all or part of a position. A partial close leaves the rest open."""
-    frac = shares / pos["shares"]
-    cost_part = round(pos["cost"] * frac, 6)
-    pnl = round(proceeds - cost_part, 6)
-    record = {k: v for k, v in pos.items() if k != "last_bid"}
+    """Close what is left of a position (`shares` must be all remaining shares) and write ONE
+    record for the whole trade, including any earlier partial sales."""
+    total_shares = pos.get("orig_shares", pos["shares"])
+    sold_before = pos.get("partial_shares", 0.0)
+    total_proceeds = round(pos.get("partial_proceeds", 0.0) + proceeds, 6)
+    total_fee = round(pos.get("partial_fees", 0.0) + fee, 6)
+    gross_now = proceeds + fee  # this fill before fees (settlements have fee 0)
+    avg_exit = (pos.get("partial_gross", 0.0) + gross_now) / (sold_before + shares) if (sold_before + shares) else exit_price
+    pnl = round(total_proceeds - pos["cost"], 6)
+    drop = {"last_bid", "orig_shares", "partial_shares", "partial_gross", "partial_proceeds",
+            "partial_fees", "pending_exit", "read_failures"}
+    record = {k: v for k, v in pos.items() if k not in drop}
     record.update({
-        "shares": shares,
-        "cost": cost_part,
+        "shares": total_shares,
         "closed_at": now.isoformat(),
-        "exit_price": exit_price,
-        "proceeds": round(proceeds, 6),
-        "fee_exit": fee,
+        "exit_price": round(avg_exit, 6),
+        "proceeds": total_proceeds,
+        "fee_exit": total_fee,
         "pnl": pnl,
-        "pnl_pct": round(pnl / cost_part * 100, 2) if cost_part else 0.0,
+        "pnl_pct": round(pnl / pos["cost"] * 100, 2) if pos["cost"] else 0.0,
         "exit_reason": reason,
         "result": "WIN" if pnl > 0 else ("LOSS" if pnl < 0 else "FLAT"),
-        "observations": _observation(pos, exit_price, reason, now),
+        "observations": _observation(pos, avg_exit, reason, now)
+                        + (f" Sold in parts ({sold_before:g} + {shares:g} shares)." if sold_before else ""),
     })
     state["cash"] = round(state["cash"] + proceeds, 6)
     state["closed"].append(record)
-    if frac >= 1 - 1e-9:
-        state["positions"].remove(pos)
-    else:
-        pos["shares"] = round(pos["shares"] - shares, 6)
-        pos["cost"] = round(pos["cost"] - cost_part, 6)
+    state["positions"].remove(pos)
     return record
 
 

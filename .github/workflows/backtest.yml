@@ -1,6 +1,7 @@
 # Downloads resolved markets + hourly price history for the backtest (manual start only).
 # Job 1 lists usable markets and saves the list; job 2 downloads their prices.
-# Results go to data/backtest/ and reports/, saved back to this repo.
+# Results go to data/backtest/ and reports/backtest*, saved back to this repo.
+# These jobs use their own concurrency groups so they never block the hourly paper-bot scan.
 
 name: backtest-collect
 
@@ -30,7 +31,9 @@ jobs:
     if: inputs.stages != 'history'
     runs-on: ubuntu-latest
     timeout-minutes: 300
-    concurrency: { group: paper-bot, cancel-in-progress: false }
+    concurrency:
+      group: backtest-list
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -47,7 +50,7 @@ jobs:
         run: |
           git config user.name "paper-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A data/backtest reports
+          git add -A data/backtest reports/backtest_list_log.txt
           if ! git diff --cached --quiet; then
             git commit -m "backtest market list $(date -u +'%Y-%m-%d %H:%M') UTC"
             git pull --rebase
@@ -59,7 +62,9 @@ jobs:
     if: always() && inputs.stages != 'list' && (needs.list.result == 'success' || needs.list.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 300
-    concurrency: { group: paper-bot, cancel-in-progress: false }
+    concurrency:
+      group: backtest-history
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v5
         with: { ref: main }
@@ -82,7 +87,7 @@ jobs:
         run: |
           git config user.name "paper-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A data reports
+          git add -A data/backtest data/backtest_summary.json reports/backtest*
           if ! git diff --cached --quiet; then
             git commit -m "backtest data + results $(date -u +'%Y-%m-%d %H:%M') UTC"
             git pull --rebase

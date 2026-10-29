@@ -36,31 +36,61 @@ def load_config(path: str = CONFIG_PATH) -> dict:
 
 def equity_of(state: dict) -> float:
     """Cash plus open positions valued at the last known best bid (what we could sell for)."""
-    return round(state["cash"] + sum(p["shares"] * (p.get("last_bid") or 0) for p in state["positions"]), 6)
+    # A position with no bid yet is valued at what it cost, not at zero: a missing quote must not
+    # look like a loss and trip the daily loss limit (review finding #4).
+    total = state["cash"]
+    for p in state["positions"]:
+        bid = p.get("last_bid")
+        total += p["shares"] * bid if bid is not None else p["cost"] - p.get("partial_proceeds", 0.0)
+    return round(total, 6)
+
+
+MAX_READ_FAILURES = 24  # hourly scans in a row; after this a position is closed at its last bid
+
+
+def _give_up(state, pos, why, now, scan):
+    """Market data has been unavailable for a full day: close at the last known bid and say so."""
+    bid = pos.get("last_bid") or 0.0
+    rec = ledger.close_position(state, pos, pos["shares"], bid, pos["shares"] * bid, 0.0,
+                                f"X5 market data unavailable for {MAX_READ_FAILURES}h ({why}); marked at last bid", now)
+    scan["closed"].append(rec)
+    scan["errors"].append(f"Position #{pos['id']} closed at last bid {bid:.3f} after {MAX_READ_FAILURES} failed reads. Check it by hand.")
 
 
 def manage_positions(state: dict, cfg: dict, now: datetime, scan: dict, api=feed) -> None:
     for pos in list(state["positions"]):
         try:
             quotes = api.fetch_market_quotes(pos["market_id"], pos["category"], cfg)
+            q = next((x for x in quotes if x.token_id == pos["token_id"]), None)
+            if q is None:
+                raise RuntimeError("outcome not found in market data")
         except Exception as err:
-            scan["errors"].append(f"Position #{pos['id']}: could not read market ({err}); kept open")
+            pos["read_failures"] = pos.get("read_failures", 0) + 1
+            if pos["read_failures"] >= MAX_READ_FAILURES:
+                _give_up(state, pos, str(err)[:80], now, scan)
+            else:
+                scan["errors"].append(f"Position #{pos['id']}: could not read market ({err}); "
+                                      f"kept open ({pos['read_failures']}/{MAX_READ_FAILURES})")
             continue
-        q = next((x for x in quotes if x.token_id == pos["token_id"]), None)
-        if q is None:
-            scan["errors"].append(f"Position #{pos['id']}: outcome not found in market data; kept open")
-            continue
-        pos["last_bid"] = q.best_bid
+        pos["read_failures"] = 0
+        if q.best_bid is not None:  # keep the previous mark if the market has no bid right now
+            pos["last_bid"] = q.best_bid
 
-        # Market already resolved: settle at the final price (no trading fee on redemption).
-        if q.closed and len(q.outcome_prices) == 2 and q.outcome_prices[q.outcome_index] in (0.0, 1.0):
-            final = q.outcome_prices[q.outcome_index]
-            rec = ledger.close_position(state, pos, pos["shares"], final, pos["shares"] * final, 0.0,
-                                        "Settled at resolution", now)
-            scan["closed"].append(rec)
+        # Market already resolved: settle at its final price, whatever it is (1, 0, or a split
+        # such as 0.5). No trading fee on redemption.
+        if q.closed:
+            if len(q.outcome_prices) == 2 and q.outcome_prices[q.outcome_index] is not None:
+                final = q.outcome_prices[q.outcome_index]
+                rec = ledger.close_position(state, pos, pos["shares"], final, pos["shares"] * final, 0.0,
+                                            "Settled at resolution", now)
+                scan["closed"].append(rec)
+            else:
+                pos["read_failures"] = pos.get("read_failures", 0) + 1
+                scan["errors"].append(f"Position #{pos['id']}: market closed but no final price yet")
             continue
 
-        reason = exit_reason(pos, q, now, cfg)
+        # A sale that only partly filled last time keeps going with its original reason.
+        reason = pos.get("pending_exit") or exit_reason(pos, q, now, cfg)
         if not reason:
             continue
         try:
@@ -71,6 +101,12 @@ def manage_positions(state: dict, cfg: dict, now: datetime, scan: dict, api=feed
         fill = simulate_sell(book, pos["shares"], pos["fee_rate"])
         if fill is None:
             scan["errors"].append(f"Position #{pos['id']}: {reason} but no bids; retry next scan")
+            continue
+        if fill.shares < pos["shares"] - 1e-9:
+            # Thin book: bank what sold, keep selling the rest next scan under the same reason.
+            ledger.record_partial_exit(state, pos, fill, reason)
+            scan["errors"].append(f"Position #{pos['id']}: {reason}, sold {fill.shares:g} of "
+                                  f"{fill.shares + pos['shares']:g} shares; rest next scan")
             continue
         rec = ledger.close_position(state, pos, fill.shares, fill.avg_price, fill.net_proceeds,
                                     fill.fee, reason, now)

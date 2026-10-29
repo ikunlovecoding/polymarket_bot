@@ -41,6 +41,8 @@ SUMMARY = os.path.join(ROOT, "data", "backtest_summary.json")
 HOUR = 3600
 SLIP = 0.01          # per side
 STALE_HOURS = 3      # a price older than this is treated as "no data this hour"
+PRICE_LAG = HOUR     # conservative: decisions at hour H use prices stamped H-1h or earlier
+GAP_PENALTY = 0.01   # extra cost when forced to exit with no fresh price
 
 
 def ts(iso: str) -> int:
@@ -75,7 +77,10 @@ class Series:
         last_pt = None
         end = min(self.closed_t, pts[-1][0] + STALE_HOURS * HOUR)
         while h <= end:
-            while i < len(pts) and pts[i][0] <= h:
+            # Only points stamped at least PRICE_LAG before h count. If Polymarket stamps an
+            # hourly bucket with its start time but fills it with the end price, this still
+            # never lets hour h see a price from after h (review finding #7).
+            while i < len(pts) and pts[i][0] <= h - PRICE_LAG:
                 last_pt = pts[i]
                 i += 1
             if last_pt and h - last_pt[0] <= STALE_HOURS * HOUR:
@@ -139,18 +144,27 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                 proceeds = p["shares"] * final
             else:
                 px = s.price(h, k)
+                time_up = h - p["opened"] >= x["max_hold_days"] * 86400
+                near_event = h >= s.event_t - x["exit_hours_before_event"] * HOUR
                 if px is None:
-                    continue  # no price this hour: can't trade, check again next hour
-                bid = max(0.0, px - SLIP)
-                p["last_bid"] = bid
-                if bid >= p["entry"] * x["take_profit_mult"] - 1e-9:
-                    reason = "X1 take profit"
-                elif bid <= p["entry"] * x["stop_loss_mult"] + 1e-9:
-                    reason = "X2 stop loss"
-                elif h - p["opened"] >= x["max_hold_days"] * 86400:
-                    reason = "X3 time stop"
-                elif h >= s.event_t - x["exit_hours_before_event"] * HOUR:
-                    reason = "X4 pre-resolution exit"
+                    # No fresh price. Price-based exits can't fire, but the time-based ones must,
+                    # or the position would ride into resolution (review finding #1). Exit at the
+                    # last known bid minus a penalty, and label it so it shows in the report.
+                    if not (time_up or near_event):
+                        continue
+                    bid = max(0.0, p["last_bid"] - GAP_PENALTY)
+                    reason = ("X3 time stop" if time_up else "X4 pre-resolution exit") + " (no fresh price)"
+                else:
+                    bid = max(0.0, px - SLIP)
+                    p["last_bid"] = bid
+                    if bid >= p["entry"] * x["take_profit_mult"] - 1e-9:
+                        reason = "X1 take profit"
+                    elif bid <= p["entry"] * x["stop_loss_mult"] + 1e-9:
+                        reason = "X2 stop loss"
+                    elif time_up:
+                        reason = "X3 time stop"
+                    elif near_event:
+                        reason = "X4 pre-resolution exit"
                 if reason is None:
                     continue
                 exit_px = bid
@@ -164,7 +178,7 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                            "outcome": s.rec["outcomes"][k], "opened": p["opened"], "closed": h,
                            "entry": p["entry"], "exit": exit_px, "shares": p["shares"], "cost": p["cost"],
                            "pnl": pnl, "pnl_pct": pnl / p["cost"] * 100, "reason": reason,
-                           "event_t": s.event_t})
+                           "event_t": s.event_t, "fee_rate": s.fee_rate})
 
         # ---- daily loss bookkeeping (UTC day)
         eq = equity(h)
@@ -188,7 +202,9 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                     ask = round(px + SLIP, 6)
                     if e["min_price"] - 1e-9 <= ask <= e["max_price"] + 1e-9:
                         cands.append((s.order_key, k, s, ask))
-            cands.sort(key=lambda c: (c[0], c[1]))
+            # Random-but-fixed order across markets; within one market the cheaper outcome first,
+            # matching the live bot's tie-break (review finding #9).
+            cands.sort(key=lambda c: (c[0], c[3]))
             for _, k, s, ask in cands:
                 if s.market_id in traded or s.event_id in held_events:
                     continue  # one per event / market
@@ -222,17 +238,28 @@ def simulate(series: list[Series], cfg: dict, stake_pct: float, start: int, end:
                        "shares": p["shares"], "cost": p["cost"],
                        "pnl": p["shares"] * p["last_bid"] - p["cost"],
                        "pnl_pct": (p["shares"] * p["last_bid"] - p["cost"]) / p["cost"] * 100,
-                       "reason": "Open at end (marked)", "event_t": p["series"].event_t})
+                       "reason": "Open at end (marked)", "event_t": p["series"].event_t,
+                       "fee_rate": p["series"].fee_rate})
         cash += p["shares"] * p["last_bid"]
     return {"trades": trades, "curve": curve, "final_equity": cash if not unlimited else None}
 
 
 # ---------------------------------------------------------------- statistics
 
+def planned_breakeven(entry: float, fee_rate: float, tp: float = 1.5, sl: float = 0.75) -> float:
+    """Win rate needed to break even if every trade ends exactly at +50% or -25% of the entry
+    price, after fees on both sides. Uses only what is known when the trade is opened."""
+    cost = entry + taker_fee(1, entry, fee_rate)
+    win_bid, loss_bid = min(0.999, entry * tp), entry * sl
+    win = win_bid - taker_fee(1, win_bid, fee_rate) - cost
+    loss = loss_bid - taker_fee(1, loss_bid, fee_rate) - cost
+    return abs(loss) / (win + abs(loss)) if win > 0 else 1.0
+
+
 def summarize(trades: list, curve: list, bank: float) -> dict:
     n = len(trades)
     wins = [t for t in trades if t["pnl"] > 0]
-    losses = [t for t in trades if t["pnl"] <= 0]
+    losses = [t for t in trades if t["pnl"] < 0]   # same convention as the live ledger
     avg_w = sum(t["pnl"] for t in wins) / len(wins) if wins else 0.0
     avg_l = sum(t["pnl"] for t in losses) / len(losses) if losses else 0.0
     avg_wp = sum(t["pnl_pct"] for t in wins) / len(wins) if wins else 0.0
@@ -246,7 +273,9 @@ def summarize(trades: list, curve: list, bank: float) -> dict:
     months = None
     if curve:
         months = (curve[-1][0] - curve[0][0]) / (30.44 * 86400)
-    be = abs(avg_lp) / (avg_wp + abs(avg_lp)) * 100 if (avg_wp + abs(avg_lp)) else None
+    # Break-even fixed in advance from each trade's entry price, fee rate and slippage, not from
+    # the results themselves (review finding #5). Averaged over the trades actually taken.
+    be = sum(planned_breakeven(t["entry"], t.get("fee_rate", 0.05)) for t in trades) / n * 100 if n else None
     return {
         "trades": n,
         "win_rate": round(len(wins) / n * 100, 1) if n else 0.0,
@@ -384,7 +413,12 @@ def write_report(s: dict, data: dict) -> None:
           "- All stakes 3% (confidence needs 24h volume). A 5% run is shown for comparison.",
           "- Same-hour signals taken in a fixed random order (the live bot uses 24h volume).",
           "- Rules checked hourly; a stop can fill below -25% if the price jumps between hours.",
-          "- Hourly prices are Polymarket's price history series, not executed trades."]
+          "- Hourly prices are Polymarket's price history series, not executed trades.",
+          "- Decisions at hour H use prices stamped H-1h or earlier (conservative, avoids any 1-hour lookahead).",
+          "- If a market has no fresh price when a time-based exit is due, it exits at the last known bid minus 1c.",
+          "- Only events that fully closed are included, and game times are their final values (postponements included).",
+          "- X5 (invalidation on wide spreads or disputes) is live-bot only; the backtest has no spread data.",
+          "- Break-even win rate is fixed in advance from each trade's entry price and fee rate (exit exactly at +50% / -25%)."]
     os.makedirs(os.path.dirname(REPORT), exist_ok=True)
     with open(REPORT, "w", encoding="utf-8") as fh:
         fh.write("\n".join(L) + "\n")

@@ -107,3 +107,30 @@ class TestBacktest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestReviewFixesBacktest(unittest.TestCase):
+    def setUp(self):
+        self.cfg = load_config()
+
+    def test_price_gap_still_exits_before_event(self):           # finding 1
+        # entry on day 0 (event day 5); prices stop on day 3 -> must exit at 12h before event,
+        # NOT ride to resolution.
+        path = flat(0.40, 3 * 24)
+        rec = market("gap", path, event_day=5, final=(1.0, 0.0))
+        t = simulate([Series(rec)], self.cfg, 0.03, T0, T0 + 8 * DAY, unlimited=True)["trades"][0]
+        self.assertEqual(t["reason"], "X4 pre-resolution exit (no fresh price)")
+        self.assertEqual(t["closed"], T0 + 5 * DAY - 12 * HOUR)
+        self.assertLess(abs(t["pnl_pct"]), 15)
+
+    def test_planned_breakeven_matches_strategy_table(self):    # finding 5
+        from bot.backtest import planned_breakeven
+        # Strategy.md: sports ~41.8% at 35c, crypto ~45.2% at 35c (computed with the same formula)
+        self.assertAlmostEqual(planned_breakeven(0.35, 0.05) * 100, 41.8, delta=0.3)
+        self.assertAlmostEqual(planned_breakeven(0.35, 0.07) * 100, 45.2, delta=0.3)
+        self.assertAlmostEqual(planned_breakeven(0.35, 0.0) * 100, 33.3, delta=0.2)
+
+    def test_cheaper_outcome_first_within_market(self):           # finding 9
+        t = simulate([Series(market("tie", flat(0.52, 240), event_day=5))], self.cfg, 0.03,
+                     T0, T0 + 8 * DAY, unlimited=True)["trades"][0]
+        self.assertEqual(t["outcome"], "No")                  # No ask 0.49 < Yes ask 0.53

@@ -300,3 +300,68 @@ class TestSafety(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+# ------------------------------------------------------------------ review fixes
+
+class TestReviewFixes(unittest.TestCase):
+    """Each test reproduces a finding from the independent code review (2026-10-29)."""
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.cfg = paper_cfg()
+        self.api = FakeApi(self.cfg)
+        self.r0 = run(self.cfg, now=NOW, api=self.api, root=self.tmp)
+        self.assertEqual(len(self.r0["state"]["positions"]), 1)
+
+    def test_missing_bid_does_not_trip_daily_loss(self):        # finding 4
+        self.api.set_quote("6236213", None, 0.41)
+        r = run(self.cfg, now=NOW + timedelta(hours=1), api=self.api, root=self.tmp)
+        pos = r["state"]["positions"][0]
+        self.assertIsNotNone(pos["last_bid"])                 # previous mark kept
+        self.assertGreater(r["equity"], 990)
+
+    def test_market_gone_closes_after_a_day(self):               # finding 3
+        class Gone(FakeApi):
+            def fetch_market_quotes(self, market_id, category, cfg):
+                raise RuntimeError("HTTP Error 404")
+        api = Gone(self.cfg)
+        for h in range(1, 24):
+            r = run(self.cfg, now=NOW + timedelta(hours=h), api=api, root=self.tmp)
+            self.assertEqual(len(r["state"]["positions"]), 1, h)
+        r = run(self.cfg, now=NOW + timedelta(hours=24), api=api, root=self.tmp)
+        self.assertNotIn(1, [p["id"] for p in r["state"]["positions"]])   # position #1 closed
+        self.assertTrue(r["state"]["closed"][0]["exit_reason"].startswith("X5 market data unavailable"))
+
+    def test_split_resolution_settles(self):                     # finding 3
+        for ev in self.api.events:
+            for m in ev["markets"]:
+                if m["id"] == "6236213":
+                    m["closed"], m["outcomePrices"] = True, '["0.5", "0.5"]'
+        r = run(self.cfg, now=NOW + timedelta(hours=1), api=self.api, root=self.tmp)
+        t = r["state"]["closed"][0]
+        self.assertEqual(t["exit_reason"], "Settled at resolution")
+        self.assertAlmostEqual(t["exit_price"], 0.5)
+
+    def test_partial_sell_is_one_trade(self):                    # finding 6
+        self.api.set_quote("6236213", 0.60, 0.61)
+        self.api.book = feed.Book(BTC82K_YES, bids=[(0.60, 50)], asks=[(0.61, 1000)],
+                                  min_order_size=5, timestamp_ms=0)
+        r = run(self.cfg, now=NOW + timedelta(hours=1), api=self.api, root=self.tmp)
+        self.assertEqual(r["state"]["closed"], [])            # only 50 of 122 sold
+        pos = r["state"]["positions"][0]
+        self.assertEqual(pos["shares"], 72)
+        self.assertEqual(pos["pending_exit"], "X1 take profit")
+        # price falls back, but the sale continues under the original reason
+        self.api.set_quote("6236213", 0.45, 0.46)
+        self.api.book = feed.Book(BTC82K_YES, bids=[(0.45, 1000)], asks=[(0.46, 1000)],
+                                  min_order_size=5, timestamp_ms=0)
+        r = run(self.cfg, now=NOW + timedelta(hours=2), api=self.api, root=self.tmp)
+        self.assertEqual(len(r["state"]["closed"]), 1)
+        t = r["state"]["closed"][0]
+        self.assertEqual(t["shares"], 122)
+        expect = (50 * 0.60 - taker_fee(50, 0.60, 0.07)) + (72 * 0.45 - taker_fee(72, 0.45, 0.07)) - t["cost"]
+        self.assertAlmostEqual(t["pnl"], expect, places=5)
+        # cash = start + this trade's P&L - whatever new positions cost after it closed
+        others = sum(p["cost"] for p in r["state"]["positions"])
+        self.assertAlmostEqual(r["state"]["cash"], 1000 + t["pnl"] - others, places=5)
