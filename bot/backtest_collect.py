@@ -15,7 +15,7 @@ Which markets are kept (none of these filters look into the future in a way that
 If a category has more markets than --cap, a fixed random sample is taken (random = no bias).
 
 Output: data/backtest/dataset.json.gz with, per market, the hourly price of outcome 0 from
-15 days before the event until it closed. Outcome 1's price is 1 minus outcome 0's.
+14 days before the event until it closed. Outcome 1's price is 1 minus outcome 0's.
 """
 
 from __future__ import annotations
@@ -122,8 +122,12 @@ def sample_key(market_id: str) -> str:
 def fetch_history(rec: dict) -> list:
     ev_t = datetime.fromisoformat(rec["event_time"].replace("Z", "+00:00"))
     cl_t = datetime.fromisoformat(rec["closed_at"].replace("Z", "+00:00"))
-    t0 = int((ev_t - timedelta(days=15)).timestamp())
-    t1 = int((min(cl_t, ev_t + timedelta(days=2)) + timedelta(hours=2)).timestamp())
+    # The CLOB refuses ranges longer than 15 days ("interval is too long", HTTP 400; checked
+    # 2026-10-29). Entries happen at most 14 days before the event and every exit is due 12h
+    # before it, so [event - 14d - 3h, min(close, event + 12h) + 1h] covers everything.
+    t0 = int((ev_t - timedelta(days=14, hours=3)).timestamp())
+    t1 = int((min(cl_t, ev_t + timedelta(hours=12)) + timedelta(hours=1)).timestamp())
+    t1 = min(t1, t0 + int(14.9 * 86400))
     if t1 <= t0:
         t1 = t0 + 3600
     # get_json already retries network errors and 429s, and gives up at once on other 4xx
