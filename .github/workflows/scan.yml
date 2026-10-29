@@ -2,6 +2,7 @@
 # - Every hour (at minute 7) it runs one scan and saves the results back into this repo.
 # - "Run workflow" on the Actions tab lets you start a check by hand.
 # Nothing here uses a wallet, key or secret: the bot only reads public data.
+# Every run's printed output is also saved to reports/run_log.txt, so it can be read from the repo.
 
 name: paper-bot
 
@@ -28,37 +29,40 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
       - name: Run tests (stop if anything is broken)
         run: python -m unittest discover -s tests
 
-      - name: Check the data feed
-        if: github.event_name == 'workflow_dispatch' && inputs.task == 'check-feed'
-        run: python -m bot.run --check-feed
-
-      - name: Dry run (prints signals, saves nothing)
-        if: github.event_name == 'workflow_dispatch' && inputs.task == 'dry-run'
-        run: python -m bot.run --dry-run
-
-      - name: Scan
-        if: github.event_name == 'schedule' || inputs.task == 'scan'
-        run: python -m bot.run
+      - name: Run the bot
+        shell: bash
+        env:
+          TASK: ${{ github.event_name == 'schedule' && 'scan' || inputs.task }}
+        run: |
+          mkdir -p reports
+          case "$TASK" in
+            check-feed) args="--check-feed" ;;
+            dry-run)    args="--dry-run" ;;
+            *)          args="" ;;
+          esac
+          { echo "task=$TASK  started=$(date -u +'%Y-%m-%d %H:%M:%S') UTC"; } > reports/run_log.txt
+          set -o pipefail
+          python -m bot.run $args 2>&1 | tee -a reports/run_log.txt
 
       - name: Save results to the repo
-        if: github.event_name == 'schedule' || inputs.task == 'scan'
+        if: always()
         run: |
           git config user.name "paper-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data reports Trade_Ledger.md Learning.md
+          git add -A data reports Trade_Ledger.md Learning.md
           if git diff --cached --quiet; then
             echo "Nothing changed"
           else
-            git commit -m "scan $(date -u +'%Y-%m-%d %H:%M') UTC"
+            git commit -m "bot run $(date -u +'%Y-%m-%d %H:%M') UTC"
             git pull --rebase
             git push
           fi
