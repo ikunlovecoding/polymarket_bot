@@ -73,4 +73,4 @@ Notes:
 - Define the "confidence" metric and the 3%→5% scaling (STRATEGY)
 - Pick 1–2 entry signals for version one; news-based likely deferred (STRATEGY)
 - Define when NOT to trade, e.g. low liquidity, unclear resolution rules, wide spreads (STRATEGY)
-- Confirm scan schedule and morning-brief time (SHIP)
+- ~~Confirm scan schedule and morning-brief time (SHIP)~~ Decided 2026-10-29: scans hourly on GitHub Actions; morning brief **08:00 Hong Kong time**, sent as a Claude notification **and** by email. Set up in the SHIP phase, after review and backtest pass.
