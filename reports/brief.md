@@ -1,5 +1,5 @@
 # Morning brief: 2026-10-29
-_Generated 2026-10-29 08:41 UTC · mode **scan_only** · paper money only_
+_Generated 2026-10-29 08:53 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,8 +15,8 @@ _Generated 2026-10-29 08:41 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
+- Will Bitcoin dip to $78,000 October 26-November 1? · Yes @ 0.410 · high · not traded: mode is 'scan_only' (signals only)
 - Will commitments to the 1W public sale exceed $60M? · Yes @ 0.350 · high · not traded: mode is 'scan_only' (signals only)
-- Will Bitcoin dip to $78,000 October 26-November 1? · Yes @ 0.390 · high · not traded: mode is 'scan_only' (signals only)
 - Will Vitality Win the PGL Masters Bucharest 2026? · Yes @ 0.370 · high · not traded: mode is 'scan_only' (signals only)
 - Will Ethereum reach $2,400 October 26-November 1? · Yes @ 0.360 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: Broncos (-3.5) · Broncos @ 0.340 · normal · not traded: mode is 'scan_only' (signals only)
