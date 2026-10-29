@@ -1,0 +1,25 @@
+category crypto: 4145 usable, using 4145
+category economics: 386 usable, using 386
+category sports: 76674 usable, using 5000
+category tech: 393 usable, using 393
+  history 500/9924 (6s, 489 failed)
+  history 1000/9924 (11s, 981 failed)
+  history 1500/9924 (17s, 1471 failed)
+  history 2000/9924 (22s, 1962 failed)
+  history 2500/9924 (28s, 2454 failed)
+  history 3000/9924 (33s, 2945 failed)
+  history 3500/9924 (39s, 3439 failed)
+  history 4000/9924 (44s, 3926 failed)
+  history 4500/9924 (50s, 4416 failed)
+  history 5000/9924 (55s, 4907 failed)
+  history 5500/9924 (61s, 5384 failed)
+  history 6000/9924 (67s, 5829 failed)
+  history 6500/9924 (73s, 6273 failed)
+  history 7000/9924 (78s, 6727 failed)
+  history 7500/9924 (84s, 7173 failed)
+  history 8000/9924 (90s, 7612 failed)
+  history 8500/9924 (96s, 8059 failed)
+  history 9000/9924 (103s, 8502 failed)
+  history 9500/9924 (110s, 8946 failed)
+history failures by reason: {'HTTP Error 400: Bad Request)': 9322}
+Saved 9924 markets (9322 history failures, 0 skipped for time) to /home/runner/work/polymarket_bot/polymarket_bot/data/backtest/dataset.json.gz, 1.7 MB

@@ -1,0 +1,21 @@
+{
+  "generated": "2026-10-29T08:00",
+  "dataset_collected": "2026-10-29T08:00:24.159496Z",
+  "window": [
+    "2026-04-28",
+    "2026-10-27"
+  ],
+  "split": "2026-08-28",
+  "passed": false,
+  "fails": [
+    "out-of-sample win rate 30.2% < break-even 42.5%",
+    "out-of-sample net P&L $-601.98 <= 0",
+    "max drawdown 67.98% > 20%"
+  ],
+  "markets_total": 9924,
+  "markets_with_history": 538,
+  "win_rate": 31.1,
+  "avg_win": 16.05,
+  "avg_loss": -10.91,
+  "max_drawdown_pct": 67.98
+}
