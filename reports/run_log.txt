@@ -1,21 +1,8 @@
-task=check-feed  started=2026-10-29 03:43:43 UTC
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/run.py", line 201, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/run.py", line 187, in main
-    return check_feed(cfg)
-           ^^^^^^^^^^^^^^^
-  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/run.py", line 170, in check_feed
-    book = feed.fetch_book(q.token_id)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/data_feed.py", line 263, in fetch_book
-    return parse_book(get_json(f"{CLOB}/book", {"token_id": token_id}), token_id)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/polymarket_bot/polymarket_bot/bot/data_feed.py", line 47, in get_json
-    raise RuntimeError(f"GET failed after {retries} tries: {url} ({last_err})")
-RuntimeError: GET failed after 3 tries: https://clob.polymarket.com/book?token_id=73503354416830145186408847690646379369043078590755687164254628069616152090390 (HTTP Error 404: Not Found)
+task=check-feed  started=2026-10-29 03:44:54 UTC
 Events: 430  Outcomes: 25684
 Outcomes by category: {'sports': 20710, 'crypto': 1766, 'economics': 876, 'tech': 2332}
+[sports] Counter-Strike: Inner Circle Esports vs Astralis (BO3) - Stake Ranked Episode 5 Playoffs [Inner Circle Esports] | Gamma bid/ask 0.48/0.49 | book bid/ask 0.48/0.49 (25/24 levels) | fee 0.05 | history points 4 | OK
+[crypto] Will Bitcoin dip to $77,500 in October? [Yes] | Gamma bid/ask 0.25/0.26 | book bid/ask 0.26/0.27 (23/48 levels) | fee 0.07 | history points 624 | OK
+[economics] Will NVIDIA be the largest company in the world by market cap on October 31, 2026? [Yes] | Gamma bid/ask 0.846/0.867 | book bid/ask 0.846/0.867 (60/54 levels) | fee 0.0 | history points 612 | OK
+[tech] Will there be no next Fable model (5.2+) release by October 31, 2026? [Yes] | Gamma bid/ask 0.904/0.922 | book bid/ask 0.905/0.922 (46/38 levels) | fee 0.0 | history points 568 | OK
+FEED OK (4/4 samples match)
