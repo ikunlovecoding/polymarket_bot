@@ -1,16 +1,17 @@
 # Downloads resolved markets + hourly price history for the backtest (manual start only).
-# Output goes to data/backtest/ and reports/backtest_collect_log.txt, saved back to this repo.
+# Job 1 lists usable markets and saves the list; job 2 downloads their prices.
+# Results go to data/backtest/ and reports/, saved back to this repo.
 
 name: backtest-collect
 
 on:
   workflow_dispatch:
     inputs:
-      mode:
-        description: "count = just count markets; collect = download data"
+      stages:
+        description: "list = only find markets; both = find markets then download prices; history = prices only"
         type: choice
-        options: [count, collect]
-        default: count
+        options: [both, list, history]
+        default: both
       start:
         description: "first event date (YYYY-MM-DD)"
         default: "2026-04-28"
@@ -24,36 +25,66 @@ on:
 permissions:
   contents: write
 
-concurrency:
-  group: paper-bot   # same group as the hourly scan, so they never push at the same time
-  cancel-in-progress: false
-
 jobs:
-  collect:
+  list:
+    if: inputs.stages != 'history'
     runs-on: ubuntu-latest
     timeout-minutes: 300
+    concurrency: { group: paper-bot, cancel-in-progress: false }
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-      - name: Collect
+        with: { python-version: "3.12" }
+      - name: List usable resolved markets
         shell: bash
         run: |
-          mkdir -p reports
-          flag=""; [ "${{ inputs.mode }}" = "count" ] && flag="--count-only"
+          mkdir -p reports data/backtest
           set -o pipefail
-          python -m bot.backtest_collect $flag --start "${{ inputs.start }}" --end "${{ inputs.end }}" \
-            --cap "${{ inputs.cap }}" 2>&1 | tee reports/backtest_collect_log.txt
+          python -m bot.backtest_collect list --start "${{ inputs.start }}" --end "${{ inputs.end }}" \
+            --threads 8 2>&1 | tee reports/backtest_list_log.txt
       - name: Save to the repo
         if: always()
         run: |
           git config user.name "paper-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdir -p data/backtest
           git add -A data/backtest reports
           if ! git diff --cached --quiet; then
-            git commit -m "backtest data ${{ inputs.mode }} $(date -u +'%Y-%m-%d %H:%M') UTC"
+            git commit -m "backtest market list $(date -u +'%Y-%m-%d %H:%M') UTC"
+            git pull --rebase
+            git push
+          fi
+
+  history:
+    needs: list
+    if: always() && inputs.stages != 'list' && (needs.list.result == 'success' || needs.list.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    concurrency: { group: paper-bot, cancel-in-progress: false }
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - name: Download hourly prices
+        shell: bash
+        run: |
+          git pull --ff-only
+          set -o pipefail
+          python -m bot.backtest_collect history --cap "${{ inputs.cap }}" --threads 8 --max-minutes 240 \
+            2>&1 | tee reports/backtest_history_log.txt
+      - name: Run the backtest
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m bot.backtest 2>&1 | tee reports/backtest_run_log.txt
+      - name: Save to the repo
+        if: always()
+        run: |
+          git config user.name "paper-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data reports
+          if ! git diff --cached --quiet; then
+            git commit -m "backtest data + results $(date -u +'%Y-%m-%d %H:%M') UTC"
             git pull --rebase
             git push
           fi
