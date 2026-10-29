@@ -22,6 +22,9 @@ on:
       cap:
         description: "max markets per category (random sample)"
         default: "12000"
+      minutes:
+        description: "time budget for downloading prices (minutes)"
+        default: "240"
 
 permissions:
   contents: write
@@ -75,7 +78,7 @@ jobs:
         run: |
           git pull --ff-only
           set -o pipefail
-          python -m bot.backtest_collect history --cap "${{ inputs.cap }}" --threads 8 --max-minutes 240 \
+          python -m bot.backtest_collect history --cap "${{ inputs.cap }}" --threads 12 --max-minutes ${{ inputs.minutes }} \
             2>&1 | tee reports/backtest_history_log.txt
       - name: Run the backtest
         shell: bash

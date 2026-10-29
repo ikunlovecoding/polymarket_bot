@@ -126,14 +126,18 @@ def fetch_history(rec: dict) -> list:
     t1 = int((min(cl_t, ev_t + timedelta(days=2)) + timedelta(hours=2)).timestamp())
     if t1 <= t0:
         t1 = t0 + 3600
-    for attempt in range(4):
-        try:
-            raw = feed.get_json(f"{feed.CLOB}/prices-history",
-                                {"market": rec["token0"], "startTs": t0, "endTs": t1, "fidelity": 60})
-            return [[int(p["t"]), int(round(float(p["p"]) * 1000))] for p in raw.get("history") or []]
-        except Exception:
-            time.sleep(3 * (attempt + 1))
-    return None  # failed
+    # get_json already retries network errors and 429s, and gives up at once on other 4xx
+    # errors. No second retry loop here: that made the first run spend ~1 minute per bad market.
+    try:
+        raw = feed.get_json(f"{feed.CLOB}/prices-history",
+                            {"market": rec["token0"], "startTs": t0, "endTs": t1, "fidelity": 60})
+    except Exception as err:
+        FAIL_REASONS[str(err).split("(")[-1][:40]] = FAIL_REASONS.get(str(err).split("(")[-1][:40], 0) + 1
+        return None
+    return [[int(p["t"]), int(round(float(p["p"]) * 1000))] for p in raw.get("history") or []]
+
+
+FAIL_REASONS: dict[str, int] = {}
 
 
 LIST_OUT = os.path.join(ROOT, "data", "backtest", "markets.json.gz")
@@ -214,8 +218,10 @@ def stage_history(args) -> int:
             else:
                 r["history"] = h
             done += 1
-            if done % 1000 == 0:
+            if done % 500 == 0:
                 print(f"  history {done}/{len(chosen)} ({time.time() - t0:.0f}s, {failed} failed)", flush=True)
+    if FAIL_REASONS:
+        print("history failures by reason:", FAIL_REASONS, flush=True)
     kept = [r for r in chosen if r["history"] is not None]
     payload = {"collected_at": _iso(datetime.now(timezone.utc)), "start": listing["start"], "end": listing["end"],
                "cap_per_category": args.cap, "usable_per_category": listing["usable_per_category"],
