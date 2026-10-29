@@ -1,0 +1,58 @@
+# Downloads resolved markets + hourly price history for the backtest (manual start only).
+# Output goes to data/backtest/ and reports/backtest_collect_log.txt, saved back to this repo.
+
+name: backtest-collect
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "count = just count markets; collect = download data"
+        type: choice
+        options: [count, collect]
+        default: count
+      start:
+        description: "first event date (YYYY-MM-DD)"
+        default: "2026-04-28"
+      end:
+        description: "last event date (YYYY-MM-DD)"
+        default: "2026-10-27"
+      cap:
+        description: "max markets per category (random sample)"
+        default: "12000"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-bot   # same group as the hourly scan, so they never push at the same time
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Collect
+        shell: bash
+        run: |
+          mkdir -p reports
+          flag=""; [ "${{ inputs.mode }}" = "count" ] && flag="--count-only"
+          set -o pipefail
+          python -m bot.backtest_collect $flag --start "${{ inputs.start }}" --end "${{ inputs.end }}" \
+            --cap "${{ inputs.cap }}" 2>&1 | tee reports/backtest_collect_log.txt
+      - name: Save to the repo
+        if: always()
+        run: |
+          git config user.name "paper-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/backtest reports/backtest_collect_log.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "backtest data ${{ inputs.mode }} $(date -u +'%Y-%m-%d %H:%M') UTC"
+            git pull --rebase
+            git push
+          fi
