@@ -1,0 +1,11 @@
+  listed 200/1728 day-windows, 75337 usable markets (429s)
+  listed 400/1728 day-windows, 80699 usable markets (975s)
+  listed 600/1728 day-windows, 81192 usable markets (985s)
+  listed 800/1728 day-windows, 81192 usable markets (990s)
+  listed 1000/1728 day-windows, 81196 usable markets (995s)
+  listed 1200/1728 day-windows, 81205 usable markets (1000s)
+  listed 1400/1728 day-windows, 81205 usable markets (1006s)
+  listed 1600/1728 day-windows, 81593 usable markets (1013s)
+closed events seen per tag: {'sports': 212916, 'crypto': 590682, 'economy': 479, 'economics': 0, 'fed-rates': 50, 'inflation': 79, 'cpi': 39, 'tech': 914, 'ai': 482}
+usable markets per category: {'sports': 76674, 'crypto': 4145, 'economics': 386, 'tech': 393}
+Saved market list to /home/runner/work/polymarket_bot/polymarket_bot/data/backtest/markets.json.gz (6.6 MB)
