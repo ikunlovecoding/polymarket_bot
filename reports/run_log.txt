@@ -1,8 +1,8 @@
-task=scan  started=2026-10-30 00:54:22 UTC
-mode=scan_only events=427 outcomes=33628 signals=6 opened=0 closed=0 equity=1000.00
-  SIGNAL Will Bitcoin dip to $76,000 October 26-November 1? [No] ask 0.262 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will commitments to the 1W public sale exceed $60M? [Yes] ask 0.260 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-10-30 01:57:02 UTC
+mode=scan_only events=427 outcomes=32776 signals=6 opened=0 closed=0 equity=1000.00
+  SIGNAL Will Bitcoin dip to $76,000 October 26-November 1? [No] ask 0.226 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will commitments to the 1W public sale exceed $60M? [Yes] ask 0.270 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Vitality Win the PGL Masters Bucharest 2026? [No] ask 0.430 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Ethereum be above $2,200 on November 3? [No] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Ethereum be above $2,200 on November 2? [No] ask 0.430 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $74,000 on November 2? [No] ask 0.239 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Bitcoin be above $74,000 on November 3? [No] ask 0.254 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Ethereum be above $2,200 on November 3? [No] ask 0.510 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Bitcoin be above $74,000 on November 2? [No] ask 0.224 -> not traded: mode is 'scan_only' (signals only)
