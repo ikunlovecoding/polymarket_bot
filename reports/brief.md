@@ -1,5 +1,5 @@
 # Morning brief: 2026-10-30
-_Generated 2026-10-30 15:50 UTC · mode **scan_only** · paper money only_
+_Generated 2026-10-30 16:48 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,9 +15,9 @@ _Generated 2026-10-30 15:50 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Will the price of Bitcoin be above $76,000 on November 2? · No @ 0.260 · high · not traded: mode is 'scan_only' (signals only)
-- Will the price of Ethereum be above $2,200 on November 3? · No @ 0.390 · high · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $76,000 on November 3? · No @ 0.301 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $76,000 on November 2? · No @ 0.259 · high · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $76,000 on November 3? · No @ 0.309 · high · not traded: mode is 'scan_only' (signals only)
+- Will the price of Ethereum be above $2,200 on November 3? · No @ 0.370 · normal · not traded: mode is 'scan_only' (signals only)
 - Will the price of Ethereum be above $2,200 on November 2? · No @ 0.350 · normal · not traded: mode is 'scan_only' (signals only)
 - Will the price of Bitcoin be above $80,000 on November 5? · Yes @ 0.270 · normal · not traded: mode is 'scan_only' (signals only)
 - Will the price of Ethereum be above $2,200 on November 4? · No @ 0.410 · normal · not traded: mode is 'scan_only' (signals only)
