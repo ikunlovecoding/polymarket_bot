@@ -1,5 +1,5 @@
 # Morning brief: 2026-10-30
-_Generated 2026-10-30 05:44 UTC · mode **scan_only** · paper money only_
+_Generated 2026-10-30 06:53 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -16,10 +16,11 @@ _Generated 2026-10-30 05:44 UTC · mode **scan_only** · paper money only_
 
 ## Signals in the latest scan
 - Will commitments to the 1W public sale exceed $60M? · Yes @ 0.290 · high · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $76,000 on November 3? · No @ 0.203 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Ethereum be above $2,200 on November 2? · No @ 0.300 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $80,000 on November 5? · Yes @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Ethereum be above $2,200 on November 4? · No @ 0.380 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $76,000 on November 3? · No @ 0.214 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Ethereum be above $2,200 on November 3? · No @ 0.340 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Ethereum be above $2,200 on November 2? · No @ 0.290 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $80,000 on November 5? · Yes @ 0.380 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Ethereum be above $2,200 on November 4? · No @ 0.370 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
