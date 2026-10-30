@@ -1,5 +1,5 @@
 # Morning brief: 2026-10-30
-_Generated 2026-10-30 19:46 UTC · mode **scan_only** · paper money only_
+_Generated 2026-10-30 20:39 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,10 +15,8 @@ _Generated 2026-10-30 19:46 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Will the price of Ethereum be above $2,200 on November 3? · No @ 0.350 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $80,000 on November 5? · Yes @ 0.230 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $78,000 on November 3? · Yes @ 0.340 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Ethereum be above $2,200 on November 4? · No @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $76,000 on November 3? · No @ 0.352 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $80,000 on November 5? · Yes @ 0.250 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
