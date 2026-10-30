@@ -1,10 +1,8 @@
-task=scan  started=2026-10-30 11:40:20 UTC
-mode=scan_only events=524 outcomes=42280 signals=8 opened=0 closed=0 equity=1000.00
-  SIGNAL Will commitments to the 1W public sale exceed $60M? [Yes] ask 0.290 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Paine Lions vs. Jacksonville Dolphins [Paine Lions] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Ethereum be above $2,200 on November 3? [No] ask 0.310 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $76,000 on November 3? [No] ask 0.280 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Ethereum be above $2,200 on November 2? [No] ask 0.260 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $80,000 on November 5? [Yes] ask 0.300 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $76,000 on November 2? [No] ask 0.242 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Ethereum be above $2,200 on November 4? [No] ask 0.360 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-10-30 12:53:16 UTC
+mode=scan_only events=523 outcomes=42854 signals=6 opened=0 closed=0 equity=1000.00
+  SIGNAL Will commitments to the 1W public sale exceed $60M? [Yes] ask 0.300 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Ethereum be above $2,200 on November 3? [No] ask 0.360 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Bitcoin be above $76,000 on November 3? [No] ask 0.288 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Ethereum be above $2,200 on November 2? [No] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Bitcoin be above $76,000 on November 2? [No] ask 0.258 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Ethereum be above $2,200 on November 4? [No] ask 0.390 -> not traded: mode is 'scan_only' (signals only)
