@@ -1,10 +1,11 @@
-task=scan  started=2026-10-30 03:47:26 UTC
-mode=scan_only events=427 outcomes=33032 signals=8 opened=0 closed=0 equity=1000.00
-  SIGNAL Will Bitcoin dip to $76,000 October 26-November 1? [Yes] ask 0.457 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will commitments to the 1W public sale exceed $60M? [Yes] ask 0.280 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-10-30 04:46:56 UTC
+mode=scan_only events=427 outcomes=33618 signals=9 opened=0 closed=0 equity=1000.00
+  SIGNAL Will Bitcoin reach $82,000 October 26-November 1? [Yes] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will commitments to the 1W public sale exceed $60M? [Yes] ask 0.290 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Vitality Win the PGL Masters Bucharest 2026? [No] ask 0.430 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Ethereum be above $2,200 on November 3? [No] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $76,000 on November 3? [No] ask 0.265 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $76,000 on November 2? [No] ask 0.251 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Ethereum be above $2,200 on November 2? [No] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $80,000 on November 5? [Yes] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Bitcoin be above $76,000 on November 3? [No] ask 0.253 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Ethereum be above $2,200 on November 3? [No] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Bitcoin be above $76,000 on November 2? [No] ask 0.219 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Ethereum be above $2,200 on November 2? [No] ask 0.320 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Bitcoin be above $80,000 on November 5? [Yes] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Ethereum be above $2,200 on November 4? [No] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
