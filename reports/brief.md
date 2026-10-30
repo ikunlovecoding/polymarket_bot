@@ -1,5 +1,5 @@
 # Morning brief: 2026-10-30
-_Generated 2026-10-30 10:47 UTC · mode **scan_only** · paper money only_
+_Generated 2026-10-30 11:40 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -16,11 +16,13 @@ _Generated 2026-10-30 10:47 UTC · mode **scan_only** · paper money only_
 
 ## Signals in the latest scan
 - Will commitments to the 1W public sale exceed $60M? · Yes @ 0.290 · high · not traded: mode is 'scan_only' (signals only)
+- Paine Lions vs. Jacksonville Dolphins · Paine Lions @ 0.480 · high · not traded: mode is 'scan_only' (signals only)
 - Will the price of Ethereum be above $2,200 on November 3? · No @ 0.310 · high · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $76,000 on November 3? · No @ 0.268 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Ethereum be above $2,200 on November 2? · No @ 0.270 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $76,000 on November 2? · No @ 0.231 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Ethereum be above $2,200 on November 4? · No @ 0.370 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $76,000 on November 3? · No @ 0.280 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Ethereum be above $2,200 on November 2? · No @ 0.260 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $80,000 on November 5? · Yes @ 0.300 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $76,000 on November 2? · No @ 0.242 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Ethereum be above $2,200 on November 4? · No @ 0.360 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
