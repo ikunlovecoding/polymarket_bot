@@ -1,3 +1,3 @@
-task=scan  started=2026-10-31 20:35:56 UTC
-mode=scan_only events=387 outcomes=31552 signals=1 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-10-31 21:36:32 UTC
+mode=scan_only events=387 outcomes=32940 signals=1 opened=0 closed=0 equity=1000.00
   SIGNAL Will Dundee FC win on 2026-11-07? [Yes] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
