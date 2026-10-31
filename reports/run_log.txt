@@ -1,3 +1,3 @@
-task=scan  started=2026-10-31 02:46:51 UTC
-mode=scan_only events=416 outcomes=32340 signals=1 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-10-31 03:43:48 UTC
+mode=scan_only events=416 outcomes=31590 signals=1 opened=0 closed=0 equity=1000.00
   SIGNAL Will Paris Saint-Germain FC win on 2026-11-03? [No] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
