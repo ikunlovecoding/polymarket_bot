@@ -1,4 +1,3 @@
-task=scan  started=2026-10-31 12:46:26 UTC
-mode=scan_only events=513 outcomes=46500 signals=2 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-10-31 13:45:07 UTC
+mode=scan_only events=513 outcomes=47538 signals=1 opened=0 closed=0 equity=1000.00
   SIGNAL Will Paris Saint-Germain FC win on 2026-11-03? [No] ask 0.390 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $80,000 on November 3? [Yes] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
