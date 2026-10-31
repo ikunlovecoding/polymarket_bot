@@ -1,5 +1,6 @@
-task=scan  started=2026-10-31 18:42:53 UTC
-mode=scan_only events=487 outcomes=44690 signals=3 opened=0 closed=0 equity=1000.00
-  SIGNAL Will Paris Saint-Germain FC win on 2026-11-03? [No] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-10-31 19:38:46 UTC
+mode=scan_only events=387 outcomes=32600 signals=4 opened=0 closed=0 equity=1000.00
   SIGNAL Will AS Roma win on 2026-11-03? [Yes] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Paris Saint-Germain FC win on 2026-11-03? [No] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will FC Bayern München win on 2026-11-03? [Yes] ask 0.430 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Dundee FC win on 2026-11-07? [Yes] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
