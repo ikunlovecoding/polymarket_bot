@@ -1,5 +1,5 @@
 # Morning brief: 2026-10-31
-_Generated 2026-10-31 19:38 UTC · mode **scan_only** · paper money only_
+_Generated 2026-10-31 20:35 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,9 +15,6 @@ _Generated 2026-10-31 19:38 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Will AS Roma win on 2026-11-03? · Yes @ 0.350 · high · not traded: mode is 'scan_only' (signals only)
-- Will Paris Saint-Germain FC win on 2026-11-03? · No @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
-- Will FC Bayern München win on 2026-11-03? · Yes @ 0.430 · normal · not traded: mode is 'scan_only' (signals only)
 - Will Dundee FC win on 2026-11-07? · Yes @ 0.340 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
