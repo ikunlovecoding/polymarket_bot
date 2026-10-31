@@ -1,4 +1,3 @@
-task=scan  started=2026-10-31 00:56:31 UTC
-mode=scan_only events=416 outcomes=33770 signals=2 opened=0 closed=0 equity=1000.00
-  SIGNAL Will the price of Bitcoin be above $80,000 on November 5? [Yes] ask 0.290 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-10-31 01:55:51 UTC
+mode=scan_only events=416 outcomes=34338 signals=1 opened=0 closed=0 equity=1000.00
   SIGNAL Will Paris Saint-Germain FC win on 2026-11-03? [No] ask 0.400 -> not traded: mode is 'scan_only' (signals only)

@@ -1,5 +1,5 @@
 # Morning brief: 2026-10-31
-_Generated 2026-10-31 00:56 UTC · mode **scan_only** · paper money only_
+_Generated 2026-10-31 01:55 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,7 +15,6 @@ _Generated 2026-10-31 00:56 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Will the price of Bitcoin be above $80,000 on November 5? · Yes @ 0.290 · high · not traded: mode is 'scan_only' (signals only)
 - Will Paris Saint-Germain FC win on 2026-11-03? · No @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
