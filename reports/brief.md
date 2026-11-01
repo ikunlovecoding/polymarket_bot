@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-01
-_Generated 2026-11-01 01:01 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-01 02:00 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,7 +15,9 @@ _Generated 2026-11-01 01:01 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Will Cheltenham Town FC win on 2026-11-07? · No @ 0.440 · high · not traded: mode is 'scan_only' (signals only)
+- LoL: Dplus KIA vs Bilibili Gaming (BO5) - Worlds Playoffs · Dplus KIA @ 0.430 · high · not traded: mode is 'scan_only' (signals only)
+- LoL: Karmine Corp vs T1 (BO5) - Worlds Playoffs · Karmine Corp @ 0.200 · high · not traded: mode is 'scan_only' (signals only)
+- Will Cheltenham Town FC win on 2026-11-07? · No @ 0.440 · normal · not traded: mode is 'scan_only' (signals only)
 - Will Dundee FC win on 2026-11-07? · Yes @ 0.340 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
