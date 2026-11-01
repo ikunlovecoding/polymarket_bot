@@ -1,4 +1,4 @@
-task=scan  started=2026-10-31 23:35:51 UTC
-mode=scan_only events=387 outcomes=27382 signals=2 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-01 01:01:54 UTC
+mode=scan_only events=387 outcomes=23338 signals=2 opened=0 closed=0 equity=1000.00
   SIGNAL Will Cheltenham Town FC win on 2026-11-07? [No] ask 0.440 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Dundee FC win on 2026-11-07? [Yes] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
