@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-01
-_Generated 2026-11-01 17:35 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-01 18:42 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -17,8 +17,8 @@ _Generated 2026-11-01 17:35 UTC · mode **scan_only** · paper money only_
 ## Signals in the latest scan
 - LoL: Dplus KIA vs Bilibili Gaming (BO5) - Worlds Playoffs · Dplus KIA @ 0.420 · high · not traded: mode is 'scan_only' (signals only)
 - Will Sevilla FC win on 2026-11-06? · No @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Cheltenham Town FC win on 2026-11-07? · No @ 0.440 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Crewe Alexandra FC win on 2026-11-07? · Yes @ 0.360 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Cheltenham Town FC win on 2026-11-07? · No @ 0.430 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Crewe Alexandra FC win on 2026-11-07? · Yes @ 0.350 · normal · not traded: mode is 'scan_only' (signals only)
 - Will Boreham Wood FC win on 2026-11-07? · Yes @ 0.440 · normal · not traded: mode is 'scan_only' (signals only)
 - Will FC Bayern München win on 2026-11-07? · No @ 0.340 · normal · not traded: mode is 'scan_only' (signals only)
 
