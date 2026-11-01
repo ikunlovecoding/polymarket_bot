@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-01
-_Generated 2026-11-01 10:40 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-01 11:36 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
