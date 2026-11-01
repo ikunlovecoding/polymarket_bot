@@ -1,5 +1,5 @@
-task=scan  started=2026-11-01 11:36:15 UTC
-mode=scan_only events=503 outcomes=29614 signals=3 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-01 12:48:44 UTC
+mode=scan_only events=503 outcomes=30716 signals=3 opened=0 closed=0 equity=1000.00
   SIGNAL LoL: Dplus KIA vs Bilibili Gaming (BO5) - Worlds Playoffs [Dplus KIA] ask 0.420 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Boreham Wood FC win on 2026-11-07? [Yes] ask 0.440 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Dundee FC win on 2026-11-07? [Yes] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
