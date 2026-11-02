@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-02
-_Generated 2026-11-02 10:03 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-02 11:00 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -17,7 +17,8 @@ _Generated 2026-11-02 10:03 UTC · mode **scan_only** · paper money only_
 ## Signals in the latest scan
 - Jaguars vs. Ravens · Ravens @ 0.220 · high · not traded: mode is 'scan_only' (signals only)
 - LoL: Dplus KIA vs Bilibili Gaming (BO5) - Worlds Playoffs · Dplus KIA @ 0.420 · high · not traded: mode is 'scan_only' (signals only)
-- Will Beşiktaş JK win on 2026-11-05? · Yes @ 0.440 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum reach $2,400 November 2-8? · Yes @ 0.440 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Beşiktaş JK win on 2026-11-05? · Yes @ 0.450 · normal · not traded: mode is 'scan_only' (signals only)
 - Will Sevilla FC win on 2026-11-06? · No @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
