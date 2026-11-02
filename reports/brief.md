@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-02
-_Generated 2026-11-02 18:55 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-02 19:53 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -18,10 +18,10 @@ _Generated 2026-11-02 18:55 UTC · mode **scan_only** · paper money only_
 - Game Handicap: T1 (-2.5) vs Karmine Corp (+2.5) · T1 @ 0.310 · high · not traded: mode is 'scan_only' (signals only)
 - LoL: Dplus KIA vs Bilibili Gaming (BO5) - Worlds Playoffs · Dplus KIA @ 0.420 · high · not traded: mode is 'scan_only' (signals only)
 - Jaguars vs. Ravens · Ravens @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Ethereum reach $2,400 November 2-8? · Yes @ 0.320 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Bitcoin dip to $74,000 November 2-8? · Yes @ 0.440 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum reach $2,400 November 2-8? · Yes @ 0.270 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Bitcoin dip to $74,000 November 2-8? · Yes @ 0.470 · normal · not traded: mode is 'scan_only' (signals only)
 - Will Beşiktaş JK win on 2026-11-05? · Yes @ 0.460 · normal · not traded: mode is 'scan_only' (signals only)
-- Spread: Texas (-2.5) · Missouri @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
+- Spread: Texas (-2.5) · Texas @ 0.510 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
