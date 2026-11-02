@@ -1,5 +1,5 @@
-task=scan  started=2026-11-02 04:59:23 UTC
-mode=scan_only events=405 outcomes=21378 signals=5 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-02 06:00:28 UTC
+mode=scan_only events=404 outcomes=22518 signals=5 opened=0 closed=0 equity=1000.00
   SIGNAL Jaguars vs. Ravens [Ravens] ask 0.220 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL LoL: Dplus KIA vs Bilibili Gaming (BO5) - Worlds Playoffs [Dplus KIA] ask 0.420 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Sevilla FC win on 2026-11-06? [No] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
