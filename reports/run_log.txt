@@ -1,8 +1,8 @@
-task=scan  started=2026-11-02 17:02:22 UTC
-mode=scan_only events=405 outcomes=28132 signals=6 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-02 17:56:37 UTC
+mode=scan_only events=405 outcomes=28936 signals=6 opened=0 closed=0 equity=1000.00
   SIGNAL Game Handicap: T1 (-2.5) vs Karmine Corp (+2.5) [T1] ask 0.310 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL LoL: Dplus KIA vs Bilibili Gaming (BO5) - Worlds Playoffs [Dplus KIA] ask 0.420 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Jaguars vs. Ravens [Ravens] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin dip to $74,000 November 2-8? [Yes] ask 0.390 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL LoL: Dplus KIA vs Bilibili Gaming (BO5) - Worlds Playoffs [Dplus KIA] ask 0.420 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum reach $2,400 November 2-8? [Yes] ask 0.330 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin dip to $74,000 November 2-8? [Yes] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Beşiktaş JK win on 2026-11-05? [Yes] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum dip to $2,100 November 2-8? [Yes] ask 0.270 -> not traded: mode is 'scan_only' (signals only)
