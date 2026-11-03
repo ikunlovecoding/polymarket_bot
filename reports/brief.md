@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-03
-_Generated 2026-11-03 17:50 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-03 18:51 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -17,7 +17,9 @@ _Generated 2026-11-03 17:50 UTC · mode **scan_only** · paper money only_
 ## Signals in the latest scan
 - Spread: Notre Dame (-5.5) · Miami (FL) @ 0.500 · high · not traded: mode is 'scan_only' (signals only)
 - Will Bitcoin reach $80,000 November 2-8? · No @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Ethereum reach $2,400 November 2-8? · Yes @ 0.460 · normal · not traded: mode is 'scan_only' (signals only)
+- Packers vs. Patriots · Packers @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum reach $2,400 November 2-8? · Yes @ 0.440 · normal · not traded: mode is 'scan_only' (signals only)
+- Browns vs. Saints · Browns @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: 49ers (-9.5) · Raiders @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - Jets vs. Chiefs: O/U 46.5 · Under @ 0.490 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: Florida State (-7.5) · Florida State @ 0.440 · normal · not traded: mode is 'scan_only' (signals only)
