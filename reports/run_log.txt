@@ -1,12 +1,12 @@
-task=scan  started=2026-11-03 22:42:53 UTC
-mode=scan_only events=430 outcomes=24618 signals=10 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-03 23:40:21 UTC
+mode=scan_only events=430 outcomes=25178 signals=10 opened=0 closed=0 equity=1000.00
   SIGNAL Bengals vs. Falcons: O/U 52.5 [Under] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Spread: Notre Dame (-5.5) [Miami (FL)] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin reach $80,000 November 2-8? [No] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Spread: Notre Dame (-5.5) [Miami (FL)] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin reach $80,000 November 2-8? [No] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Packers vs. Patriots [Packers] ask 0.390 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Browns vs. Saints [Browns] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum reach $2,400 November 2-8? [Yes] ask 0.410 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum reach $2,400 November 2-8? [Yes] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Jets vs. Chiefs: O/U 46.5 [Under] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Florida State (-7.5) [Florida State] ask 0.440 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Spread: Utah (-4.5) [BYU] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will FC Internazionale Milano win on 2026-11-08? [No] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Spread: Utah (-5.5) [Utah] ask 0.510 -> not traded: mode is 'scan_only' (signals only)
