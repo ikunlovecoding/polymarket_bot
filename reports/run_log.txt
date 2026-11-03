@@ -1,8 +1,10 @@
-task=scan  started=2026-11-03 14:13:24 UTC
-mode=scan_only events=417 outcomes=17476 signals=6 opened=0 closed=0 equity=1000.00
-  SIGNAL Will Bitcoin dip to $74,000 November 2-8? [Yes] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-11-03 15:51:26 UTC
+mode=scan_only events=516 outcomes=27170 signals=8 opened=0 closed=0 equity=1000.00
+  SIGNAL Will Bitcoin reach $80,000 November 2-8? [No] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Games Total: O/U 3.5 [Under] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum reach $2,400 November 2-8? [Yes] ask 0.390 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Spread: Notre Dame (-5.5) [Miami (FL)] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum reach $2,400 November 2-8? [Yes] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: 49ers (-9.5) [Raiders] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Bengals vs. Falcons: O/U 52.5 [Over] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will FC Internazionale Milano win on 2026-11-08? [No] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Sport Lisboa e Benfica win on 2026-11-08? [No] ask 0.220 -> not traded: mode is 'scan_only' (signals only)
