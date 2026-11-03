@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-03
-_Generated 2026-11-03 12:58 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-03 14:13 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,9 +15,9 @@ _Generated 2026-11-03 12:58 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Game Handicap: T1 (-2.5) vs Karmine Corp (+2.5) · T1 @ 0.310 · high · not traded: mode is 'scan_only' (signals only)
-- Will Bitcoin dip to $74,000 November 2-8? · Yes @ 0.360 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Ethereum dip to $2,100 November 2-8? · Yes @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Bitcoin dip to $74,000 November 2-8? · Yes @ 0.370 · normal · not traded: mode is 'scan_only' (signals only)
+- Games Total: O/U 3.5 · Under @ 0.370 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum reach $2,400 November 2-8? · Yes @ 0.390 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: 49ers (-9.5) · Raiders @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - Will FC Internazionale Milano win on 2026-11-08? · No @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - Will Sport Lisboa e Benfica win on 2026-11-08? · No @ 0.220 · normal · not traded: mode is 'scan_only' (signals only)
