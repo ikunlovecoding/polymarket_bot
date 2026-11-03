@@ -1,8 +1,8 @@
-task=scan  started=2026-11-03 05:54:22 UTC
-mode=scan_only events=417 outcomes=21532 signals=6 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-03 07:06:01 UTC
+mode=scan_only events=417 outcomes=21406 signals=6 opened=0 closed=0 equity=1000.00
   SIGNAL Game Handicap: T1 (-2.5) vs Karmine Corp (+2.5) [T1] ask 0.310 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum reach $2,400 November 2-8? [Yes] ask 0.290 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin dip to $74,000 November 2-8? [Yes] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum reach $2,400 November 2-8? [Yes] ask 0.270 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin dip to $74,000 November 2-8? [Yes] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: 49ers (-9.5) [Raiders] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Sport Lisboa e Benfica win on 2026-11-08? [No] ask 0.220 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Miami (FL) vs. Notre Dame [Miami (FL)] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
