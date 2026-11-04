@@ -1,14 +1,14 @@
-task=scan  started=2026-11-04 13:00:28 UTC
-mode=scan_only events=429 outcomes=30030 signals=12 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-04 14:17:10 UTC
+mode=scan_only events=429 outcomes=30452 signals=12 opened=0 closed=0 equity=1000.00
   SIGNAL Bengals vs. Falcons: O/U 52.5 [Under] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin reach $80,000 November 2-8? [No] ask 0.450 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin reach $82,000 November 2-8? [Yes] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Browns vs. Saints [Browns] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Notre Dame (-5.5) [Miami (FL)] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Packers vs. Patriots [Packers] ask 0.390 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.310 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Jets vs. Chiefs: O/U 46.5 [Under] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Florida State (-7.5) [Florida State] ask 0.440 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Genoa CFC win on 2026-11-08? [Yes] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Utah (-4.5) [BYU] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC Fight Night: Thomas Petersen vs. Gabriel Lorenço (Heavyweight, Prelims) [Gabriel Lorenço] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum dip to $2,200 November 2-8? [Yes] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Genoa CFC win on 2026-11-08? [Yes] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum dip to $2,200 November 2-8? [Yes] ask 0.310 -> not traded: mode is 'scan_only' (signals only)
