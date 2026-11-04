@@ -1,12 +1,13 @@
-task=scan  started=2026-11-04 18:55:51 UTC
-mode=scan_only events=527 outcomes=42430 signals=10 opened=0 closed=0 equity=1000.00
-  SIGNAL Bengals vs. Falcons: O/U 52.5 [Over] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum reach $2,500 November 2-8? [Yes] ask 0.510 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin reach $84,000 November 2-8? [Yes] ask 0.221 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-11-04 19:57:19 UTC
+mode=scan_only events=527 outcomes=42480 signals=11 opened=0 closed=0 equity=1000.00
+  SIGNAL Will Ethereum reach $2,500 November 2-8? [Yes] ask 0.450 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin reach $82,000 November 2-8? [Yes] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Cardinals vs. Seahawks [Cardinals] ask 0.230 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Browns vs. Saints: O/U 42.5 [Over] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Cardinals vs. Seahawks [Cardinals] ask 0.240 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Texans (-4.5) [Chargers] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Miami (FL) vs. Notre Dame [Miami (FL)] ask 0.300 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.310 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Genoa CFC win on 2026-11-08? [Yes] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Counter-Strike: Legacy vs FURIA (BO3) - BLAST Rivals Group A [Legacy] ask 0.310 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC Fight Night: Thomas Petersen vs. Gabriel Lorenço (Heavyweight, Prelims) [Gabriel Lorenço] ask 0.390 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL UFC Fight Night: Keiichiro Nakamura vs. Ollie Schmid (Featherweight, Prelims) [Ollie Schmid] ask 0.260 -> not traded: mode is 'scan_only' (signals only)
