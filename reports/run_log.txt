@@ -1,10 +1,10 @@
-task=scan  started=2026-11-04 19:57:19 UTC
-mode=scan_only events=527 outcomes=42480 signals=11 opened=0 closed=0 equity=1000.00
-  SIGNAL Will Ethereum reach $2,500 November 2-8? [Yes] ask 0.450 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin reach $82,000 November 2-8? [Yes] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-11-04 20:53:12 UTC
+mode=scan_only events=427 outcomes=34072 signals=11 opened=0 closed=0 equity=1000.00
+  SIGNAL Will Ethereum reach $2,500 November 2-8? [Yes] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin reach $82,000 November 2-8? [Yes] ask 0.510 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Cardinals vs. Seahawks [Cardinals] ask 0.230 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Browns vs. Saints: O/U 42.5 [Over] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Spread: Texans (-4.5) [Chargers] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Browns vs. Saints [Browns] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Spread: Texans (-4.5) [Chargers] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Miami (FL) vs. Notre Dame [Miami (FL)] ask 0.300 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.310 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Genoa CFC win on 2026-11-08? [Yes] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
