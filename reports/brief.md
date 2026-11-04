@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-04
-_Generated 2026-11-04 21:50 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-04 22:48 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,19 +15,18 @@ _Generated 2026-11-04 21:50 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Will Ethereum reach $2,500 November 2-8? · Yes @ 0.490 · high · not traded: mode is 'scan_only' (signals only)
-- Will Bitcoin reach $84,000 November 2-8? · Yes @ 0.211 · high · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum reach $2,500 November 2-8? · No @ 0.400 · high · not traded: mode is 'scan_only' (signals only)
+- Will Bitcoin reach $84,000 November 2-8? · Yes @ 0.300 · high · not traded: mode is 'scan_only' (signals only)
 - Cardinals vs. Seahawks · Cardinals @ 0.230 · normal · not traded: mode is 'scan_only' (signals only)
 - Browns vs. Saints · Browns @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: Texans (-4.5) · Chargers @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - Will FC Internazionale Milano win on 2026-11-08? · No @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - Miami (FL) vs. Notre Dame · Miami (FL) @ 0.300 · normal · not traded: mode is 'scan_only' (signals only)
+- Spread: 49ers (-9.5) · Raiders @ 0.490 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.310 · normal · not traded: mode is 'scan_only' (signals only)
 - Will Genoa CFC win on 2026-11-08? · Yes @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
 - Counter-Strike: Legacy vs FURIA (BO3) - BLAST Rivals Group A · Legacy @ 0.310 · normal · not traded: mode is 'scan_only' (signals only)
 - Will FC Barcelona win on 2026-11-08? · No @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
-- UFC Fight Night: Thomas Petersen vs. Gabriel Lorenço (Heavyweight, Prelims) · Gabriel Lorenço @ 0.390 · normal · not traded: mode is 'scan_only' (signals only)
-- UFC Fight Night: Keiichiro Nakamura vs. Ollie Schmid (Featherweight, Prelims) · Ollie Schmid @ 0.260 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
