@@ -1,7 +1,7 @@
-task=scan  started=2026-11-05 02:10:36 UTC
-mode=scan_only events=426 outcomes=33434 signals=13 opened=0 closed=0 equity=1000.00
-  SIGNAL Will Bitcoin reach $82,000 November 2-8? [No] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum reach $2,500 November 2-8? [No] ask 0.440 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-11-05 03:55:07 UTC
+mode=scan_only events=426 outcomes=29628 signals=13 opened=0 closed=0 equity=1000.00
+  SIGNAL Will Bitcoin reach $82,000 November 2-8? [No] ask 0.410 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum reach $2,500 November 2-8? [No] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Rams (-5.5) [Rams] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Browns vs. Saints [Browns] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Cardinals vs. Seahawks [Cardinals] ask 0.230 -> not traded: mode is 'scan_only' (signals only)
@@ -12,4 +12,4 @@ mode=scan_only events=426 outcomes=33434 signals=13 opened=0 closed=0 equity=100
   SIGNAL Spread: Lions (-6.5) [Dolphins] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Genoa CFC win on 2026-11-08? [Yes] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Counter-Strike: Legacy vs FURIA (BO3) - BLAST Rivals Group A [Legacy] ask 0.310 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will FC Barcelona win on 2026-11-08? [No] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will FC Barcelona win on 2026-11-08? [No] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
