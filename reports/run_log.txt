@@ -1,17 +1,12 @@
-task=scan  started=2026-11-05 17:13:08 UTC
-mode=scan_only events=524 outcomes=40498 signals=15 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-05 18:54:09 UTC
+mode=scan_only events=524 outcomes=43254 signals=10 opened=0 closed=0 equity=1000.00
   SIGNAL Spread: 49ers (-9.5) [Raiders] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin dip to $74,000 November 2-8? [Yes] ask 0.447 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Bills vs. Vikings [Vikings] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum dip to $2,200 November 2-8? [No] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Spread: Rams (-5.5) [Rams] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Cardinals vs. Seahawks [Cardinals] ask 0.230 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Jets vs. Chiefs [Jets] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin dip to $74,000 November 2-8? [Yes] ask 0.446 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Bills vs. Vikings [Vikings] ask 0.360 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum dip to $2,200 November 2-8? [No] ask 0.360 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Counter-Strike: MOUZ vs G2 (BO3) - BLAST Rivals Group B [G2] ask 0.250 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Texans (-5.5) [Texans] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.320 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Spread: Lions (-6.5) [Dolphins] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.330 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Cardinals vs. Seahawks [Cardinals] ask 0.230 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will FC Barcelona win on 2026-11-08? [No] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Map Handicap: TS (-1.5) vs FUT Esports (+1.5) [Spirit] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Natus Vincere Win the IEM Beijing 2026? [Yes] ask 0.240 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Counter-Strike: Legacy vs FURIA (BO3) - BLAST Rivals Group A [Legacy] ask 0.310 -> not traded: mode is 'scan_only' (signals only)
