@@ -1,5 +1,5 @@
-# Morning brief: 2026-11-04
-_Generated 2026-11-04 23:42 UTC · mode **scan_only** · paper money only_
+# Morning brief: 2026-11-05
+_Generated 2026-11-05 01:00 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,14 +15,13 @@ _Generated 2026-11-04 23:42 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Will Bitcoin reach $82,000 November 2-8? · No @ 0.380 · high · not traded: mode is 'scan_only' (signals only)
-- Will Ethereum reach $2,500 November 2-8? · No @ 0.460 · high · not traded: mode is 'scan_only' (signals only)
-- Cardinals vs. Seahawks · Cardinals @ 0.230 · normal · not traded: mode is 'scan_only' (signals only)
-- Browns vs. Saints · Browns @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Bitcoin reach $82,000 November 2-8? · No @ 0.410 · high · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum reach $2,500 November 2-8? · Yes @ 0.510 · high · not traded: mode is 'scan_only' (signals only)
 - Spread: Rams (-5.5) · Rams @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
+- Browns vs. Saints · Browns @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
+- Cardinals vs. Seahawks · Cardinals @ 0.230 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: Texans (-4.5) · Chargers @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - Will FC Internazionale Milano win on 2026-11-08? · No @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
-- Miami (FL) vs. Notre Dame · Miami (FL) @ 0.300 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: 49ers (-9.5) · Raiders @ 0.490 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: Lions (-6.5) · Dolphins @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.310 · normal · not traded: mode is 'scan_only' (signals only)
