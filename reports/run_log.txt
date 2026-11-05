@@ -1,8 +1,9 @@
-task=scan  started=2026-11-05 21:46:47 UTC
-mode=scan_only events=523 outcomes=45172 signals=6 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-05 22:49:00 UTC
+mode=scan_only events=423 outcomes=32256 signals=7 opened=0 closed=0 equity=1000.00
+  SIGNAL Will Bitcoin dip to $72,000 November 2-8? [Yes] ask 0.222 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Bills vs. Vikings [Vikings] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin dip to $74,000 November 2-8? [Yes] ask 0.489 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum dip to $2,200 November 2-8? [No] ask 0.270 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum dip to $2,200 November 2-8? [No] ask 0.220 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Counter-Strike: MOUZ vs G2 (BO3) - BLAST Rivals Group B [G2] ask 0.250 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.330 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Map Handicap: TS (-1.5) vs FUT Esports (+1.5) [Spirit] ask 0.410 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Natus Vincere Win the IEM Beijing 2026? [Yes] ask 0.240 -> not traded: mode is 'scan_only' (signals only)
