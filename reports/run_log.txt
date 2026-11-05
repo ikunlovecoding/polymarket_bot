@@ -1,11 +1,11 @@
-task=scan  started=2026-11-05 14:25:09 UTC
-mode=scan_only events=524 outcomes=40578 signals=16 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-05 15:59:14 UTC
+mode=scan_only events=524 outcomes=41988 signals=16 opened=0 closed=0 equity=1000.00
   SIGNAL Spread: 49ers (-9.5) [Raiders] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin reach $82,000 November 2-8? [Yes] ask 0.290 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin dip to $74,000 November 2-8? [No] ask 0.465 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Bills vs. Vikings [Vikings] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Rams (-5.5) [Rams] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Cardinals vs. Seahawks [Cardinals] ask 0.230 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum reach $2,500 November 2-8? [Yes] ask 0.240 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Browns vs. Saints: O/U 42.5 [Over] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum dip to $2,200 November 2-8? [No] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Texans (-4.5) [Chargers] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Counter-Strike: MOUZ vs G2 (BO3) - BLAST Rivals Group B [G2] ask 0.250 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will FC Internazionale Milano win on 2026-11-08? [No] ask 0.490 -> not traded: mode is 'scan_only' (signals only)

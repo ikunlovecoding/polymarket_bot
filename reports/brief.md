@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-05
-_Generated 2026-11-05 14:25 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-05 15:59 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -16,11 +16,11 @@ _Generated 2026-11-05 14:25 UTC · mode **scan_only** · paper money only_
 
 ## Signals in the latest scan
 - Spread: 49ers (-9.5) · Raiders @ 0.490 · high · not traded: mode is 'scan_only' (signals only)
-- Will Bitcoin reach $82,000 November 2-8? · Yes @ 0.290 · high · not traded: mode is 'scan_only' (signals only)
-- Spread: Rams (-5.5) · Rams @ 0.470 · high · not traded: mode is 'scan_only' (signals only)
-- Cardinals vs. Seahawks · Cardinals @ 0.230 · high · not traded: mode is 'scan_only' (signals only)
-- Will Ethereum reach $2,500 November 2-8? · Yes @ 0.240 · normal · not traded: mode is 'scan_only' (signals only)
-- Browns vs. Saints: O/U 42.5 · Over @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Bitcoin dip to $74,000 November 2-8? · No @ 0.465 · high · not traded: mode is 'scan_only' (signals only)
+- Bills vs. Vikings · Vikings @ 0.370 · high · not traded: mode is 'scan_only' (signals only)
+- Spread: Rams (-5.5) · Rams @ 0.470 · normal · not traded: mode is 'scan_only' (signals only)
+- Cardinals vs. Seahawks · Cardinals @ 0.230 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum dip to $2,200 November 2-8? · No @ 0.350 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: Texans (-4.5) · Chargers @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - Counter-Strike: MOUZ vs G2 (BO3) - BLAST Rivals Group B · G2 @ 0.250 · normal · not traded: mode is 'scan_only' (signals only)
 - Will FC Internazionale Milano win on 2026-11-08? · No @ 0.490 · normal · not traded: mode is 'scan_only' (signals only)
