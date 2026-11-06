@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-06
-_Generated 2026-11-06 17:49 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-06 18:51 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,11 +15,10 @@ _Generated 2026-11-06 17:49 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Dota 2: potn9ki vs Zenith (BO3) - DreamLeague Division 2 Group A · Zenith @ 0.500 · high · not traded: mode is 'scan_only' (signals only)
 - Bills vs. Vikings · Vikings @ 0.380 · high · not traded: mode is 'scan_only' (signals only)
-- Dota 2: PlayTime vs Team Synapse (BO3) - DreamLeague Division 2 Group A · Team Synapse @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
-- UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.340 · normal · not traded: mode is 'scan_only' (signals only)
+- UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.340 · high · not traded: mode is 'scan_only' (signals only)
 - Will Natus Vincere Win the IEM Beijing 2026? · Yes @ 0.330 · normal · not traded: mode is 'scan_only' (signals only)
+- Game Handicap: HULIGANI (-1.5) vs PuckChamp (+1.5) · PuckChamp @ 0.240 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
