@@ -1,6 +1,4 @@
-task=scan  started=2026-11-06 08:56:45 UTC
-mode=scan_only events=422 outcomes=35364 signals=4 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-06 10:01:39 UTC
+mode=scan_only events=422 outcomes=34954 signals=2 opened=0 closed=0 equity=1000.00
   SIGNAL Bills vs. Vikings [Vikings] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Counter-Strike: MOUZ vs G2 (BO3) - BLAST Rivals Group B [G2] ask 0.250 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $74,000 on November 10? [No] ask 0.294 -> not traded: mode is 'scan_only' (signals only)
