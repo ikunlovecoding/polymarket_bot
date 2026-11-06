@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-06
-_Generated 2026-11-06 11:52 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-06 13:00 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -16,8 +16,7 @@ _Generated 2026-11-06 11:52 UTC · mode **scan_only** · paper money only_
 
 ## Signals in the latest scan
 - Bills vs. Vikings · Vikings @ 0.380 · high · not traded: mode is 'scan_only' (signals only)
-- Will Natus Vincere Win the IEM Beijing 2026? · Yes @ 0.350 · high · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $74,000 on November 10? · No @ 0.247 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Natus Vincere Win the IEM Beijing 2026? · Yes @ 0.340 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
