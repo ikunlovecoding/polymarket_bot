@@ -1,9 +1,7 @@
-task=scan  started=2026-11-06 16:52:19 UTC
-mode=scan_only events=520 outcomes=46298 signals=7 opened=0 closed=0 equity=1000.00
-  SIGNAL Dota 2: potn9ki vs Zenith (BO3) - DreamLeague Division 2 Group A [Zenith] ask 0.510 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-11-06 17:49:19 UTC
+mode=scan_only events=520 outcomes=45962 signals=5 opened=0 closed=0 equity=1000.00
+  SIGNAL Dota 2: potn9ki vs Zenith (BO3) - DreamLeague Division 2 Group A [Zenith] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Bills vs. Vikings [Vikings] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Dota 2: PlayTime vs Team Synapse (BO3) - DreamLeague Division 2 Group A [Team Synapse] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Dota 2: PlayTime vs Team Synapse (BO3) - DreamLeague Division 2 Group A [Team Synapse] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Natus Vincere Win the IEM Beijing 2026? [Yes] ask 0.320 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Dota 2: HULIGANI vs Yakult Brothers (BO3) - DreamLeague Division 2 Group B [Yakult Brothers] ask 0.430 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will UMich Consumer Sentiment be between 46.0 and 48.9 in November? [No] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Natus Vincere Win the IEM Beijing 2026? [Yes] ask 0.330 -> not traded: mode is 'scan_only' (signals only)
