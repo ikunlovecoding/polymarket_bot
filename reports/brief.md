@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-06
-_Generated 2026-11-06 01:02 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-06 02:12 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,14 +15,14 @@ _Generated 2026-11-06 01:02 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Bills vs. Vikings · Vikings @ 0.380 · high · not traded: mode is 'scan_only' (signals only)
 - Will Bitcoin dip to $74,000 November 2-8? · Yes @ 0.410 · high · not traded: mode is 'scan_only' (signals only)
-- Will Ethereum dip to $2,200 November 2-8? · No @ 0.350 · normal · not traded: mode is 'scan_only' (signals only)
+- Bills vs. Vikings · Vikings @ 0.380 · high · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum dip to $2,200 November 2-8? · No @ 0.310 · normal · not traded: mode is 'scan_only' (signals only)
 - Counter-Strike: MOUZ vs G2 (BO3) - BLAST Rivals Group B · G2 @ 0.250 · normal · not traded: mode is 'scan_only' (signals only)
-- UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.330 · normal · not traded: mode is 'scan_only' (signals only)
-- Map Handicap: TS (-1.5) vs FUT Esports (+1.5) · Spirit @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
+- UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.340 · normal · not traded: mode is 'scan_only' (signals only)
+- Map Handicap: TS (-1.5) vs FUT Esports (+1.5) · Spirit @ 0.410 · normal · not traded: mode is 'scan_only' (signals only)
 - Will Natus Vincere Win the IEM Beijing 2026? · Yes @ 0.240 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $74,000 on November 10? · No @ 0.249 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $74,000 on November 10? · No @ 0.256 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
