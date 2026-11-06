@@ -1,6 +1,5 @@
-task=scan  started=2026-11-06 22:41:05 UTC
-mode=scan_only events=523 outcomes=50180 signals=4 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-06 23:39:01 UTC
+mode=scan_only events=523 outcomes=50662 signals=3 opened=0 closed=0 equity=1000.00
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Dota 2: PlayTime vs Team Synapse (BO3) - DreamLeague Division 2 Group A [Team Synapse] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Natus Vincere Win the IEM Beijing 2026? [Yes] ask 0.330 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Game Handicap: HULIGANI (-1.5) vs PuckChamp (+1.5) [PuckChamp] ask 0.220 -> not traded: mode is 'scan_only' (signals only)
