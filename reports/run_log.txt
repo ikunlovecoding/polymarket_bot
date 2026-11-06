@@ -1,4 +1,5 @@
-task=scan  started=2026-11-06 11:00:46 UTC
-mode=scan_only events=422 outcomes=34664 signals=2 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-06 11:52:15 UTC
+mode=scan_only events=522 outcomes=43538 signals=3 opened=0 closed=0 equity=1000.00
   SIGNAL Bills vs. Vikings [Vikings] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Natus Vincere Win the IEM Beijing 2026? [Yes] ask 0.280 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Natus Vincere Win the IEM Beijing 2026? [Yes] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Bitcoin be above $74,000 on November 10? [No] ask 0.247 -> not traded: mode is 'scan_only' (signals only)
