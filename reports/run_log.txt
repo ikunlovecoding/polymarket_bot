@@ -1,4 +1,5 @@
-task=scan  started=2026-11-07 06:54:47 UTC
-mode=scan_only events=524 outcomes=45118 signals=2 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-07 07:59:10 UTC
+mode=scan_only events=524 outcomes=45686 signals=3 opened=0 closed=0 equity=1000.00
+  SIGNAL Dota 2: PlayTime vs Team Synapse (BO3) - DreamLeague Division 2 Group A [Team Synapse] ask 0.330 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Game Handicap: HULIGANI (-1.5) vs PuckChamp (+1.5) [PuckChamp] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
