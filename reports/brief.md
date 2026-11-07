@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-07
-_Generated 2026-11-07 08:51 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-07 09:46 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,8 +15,8 @@ _Generated 2026-11-07 08:51 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Dota 2: PlayTime vs Team Synapse (BO3) - DreamLeague Division 2 Group A · Team Synapse @ 0.330 · high · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.340 · high · not traded: mode is 'scan_only' (signals only)
+- Dota 2: PlayTime vs Team Synapse (BO3) - DreamLeague Division 2 Group A · Team Synapse @ 0.330 · normal · not traded: mode is 'scan_only' (signals only)
 - Game Handicap: HULIGANI (-1.5) vs PuckChamp (+1.5) · PuckChamp @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
