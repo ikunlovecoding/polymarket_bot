@@ -1,6 +1,5 @@
-task=scan  started=2026-11-07 15:38:19 UTC
-mode=scan_only events=524 outcomes=50440 signals=4 opened=0 closed=0 equity=1000.00
-  SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Dota 2: potn9ki vs Zenith (BO3) - DreamLeague Division 2 Group A [potn9ki] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-11-07 16:39:57 UTC
+mode=scan_only events=524 outcomes=51436 signals=3 opened=0 closed=0 equity=1000.00
+  SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.330 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Dota 2: potn9ki vs Zenith (BO3) - DreamLeague Division 2 Group A [potn9ki] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Counter-Strike: Vitality vs Team Falcons (BO3) - BLAST Rivals Group A [Team Falcons] ask 0.300 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL UFC 334: Amanda Nunes vs. Kayla Harrison (Women's Bantamweight, Main Card) [Amanda Nunes] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
