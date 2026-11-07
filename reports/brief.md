@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-07
-_Generated 2026-11-07 12:49 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-07 13:50 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -16,6 +16,7 @@ _Generated 2026-11-07 12:49 UTC · mode **scan_only** · paper money only_
 
 ## Signals in the latest scan
 - UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.340 · high · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $78,000 on November 10? · Yes @ 0.200 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Amanda Nunes vs. Kayla Harrison (Women's Bantamweight, Main Card) · Amanda Nunes @ 0.380 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
