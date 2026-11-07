@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-07
-_Generated 2026-11-07 16:39 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-07 17:36 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -16,7 +16,7 @@ _Generated 2026-11-07 16:39 UTC · mode **scan_only** · paper money only_
 
 ## Signals in the latest scan
 - UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.330 · high · not traded: mode is 'scan_only' (signals only)
-- Dota 2: potn9ki vs Zenith (BO3) - DreamLeague Division 2 Group A · potn9ki @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
+- Dota 2: potn9ki vs Zenith (BO3) - DreamLeague Division 2 Group A · potn9ki @ 0.510 · normal · not traded: mode is 'scan_only' (signals only)
 - Counter-Strike: Vitality vs Team Falcons (BO3) - BLAST Rivals Group A · Team Falcons @ 0.300 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
