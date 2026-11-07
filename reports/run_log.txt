@@ -1,4 +1,3 @@
-task=scan  started=2026-11-07 21:37:27 UTC
-mode=scan_only events=424 outcomes=34682 signals=2 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-07 22:38:11 UTC
+mode=scan_only events=424 outcomes=33460 signals=1 opened=0 closed=0 equity=1000.00
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.330 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Counter-Strike: Vitality vs Team Falcons (BO3) - BLAST Rivals Group A [Team Falcons] ask 0.300 -> not traded: mode is 'scan_only' (signals only)
