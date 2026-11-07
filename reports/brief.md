@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-07
-_Generated 2026-11-07 10:42 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-07 11:39 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,9 +15,7 @@ _Generated 2026-11-07 10:42 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- Dota 2: potn9ki vs Zenith (BO3) - DreamLeague Division 2 Group A · potn9ki @ 0.320 · high · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.350 · high · not traded: mode is 'scan_only' (signals only)
-- Game Handicap: HULIGANI (-1.5) vs PuckChamp (+1.5) · PuckChamp @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Amanda Nunes vs. Kayla Harrison (Women's Bantamweight, Main Card) · Amanda Nunes @ 0.380 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval

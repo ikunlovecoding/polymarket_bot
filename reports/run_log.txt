@@ -1,6 +1,4 @@
-task=scan  started=2026-11-07 10:42:15 UTC
-mode=scan_only events=524 outcomes=46568 signals=4 opened=0 closed=0 equity=1000.00
-  SIGNAL Dota 2: potn9ki vs Zenith (BO3) - DreamLeague Division 2 Group A [potn9ki] ask 0.320 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-11-07 11:39:27 UTC
+mode=scan_only events=524 outcomes=46200 signals=2 opened=0 closed=0 equity=1000.00
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Game Handicap: HULIGANI (-1.5) vs PuckChamp (+1.5) [PuckChamp] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Amanda Nunes vs. Kayla Harrison (Women's Bantamweight, Main Card) [Amanda Nunes] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
