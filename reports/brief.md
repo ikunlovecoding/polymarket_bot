@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-08
-_Generated 2026-11-08 22:39 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-08 23:37 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -16,7 +16,7 @@ _Generated 2026-11-08 22:39 UTC · mode **scan_only** · paper money only_
 
 ## Signals in the latest scan
 - UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.330 · high · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $72,000 on November 14? · No @ 0.280 · high · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $72,000 on November 14? · No @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
