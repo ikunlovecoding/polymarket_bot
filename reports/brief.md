@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-09
-_Generated 2026-11-09 06:08 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-09 08:28 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -15,10 +15,12 @@ _Generated 2026-11-09 06:08 UTC · mode **scan_only** · paper money only_
 - No trades
 
 ## Signals in the latest scan
-- UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.350 · high · not traded: mode is 'scan_only' (signals only)
 - LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs · Bilibili Gaming @ 0.380 · high · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $72,000 on November 14? · No @ 0.230 · normal · not traded: mode is 'scan_only' (signals only)
+- UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.350 · high · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $72,000 on November 14? · No @ 0.270 · normal · not traded: mode is 'scan_only' (signals only)
 - Commanders vs. Giants · Commanders @ 0.460 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Ethereum be above $2,000 on November 13? · No @ 0.220 · normal · not traded: mode is 'scan_only' (signals only)
+- Chiefs vs. Falcons · Falcons @ 0.370 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.

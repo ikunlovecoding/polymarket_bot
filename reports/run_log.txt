@@ -1,6 +1,8 @@
-task=scan  started=2026-11-09 06:08:10 UTC
-mode=scan_only events=324 outcomes=14472 signals=4 opened=0 closed=0 equity=1000.00
-  SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-11-09 08:28:07 UTC
+mode=scan_only events=328 outcomes=16370 signals=6 opened=0 closed=0 equity=1000.00
   SIGNAL LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs [Bilibili Gaming] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $72,000 on November 14? [No] ask 0.230 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Bitcoin be above $72,000 on November 14? [No] ask 0.270 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Commanders vs. Giants [Commanders] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Ethereum be above $2,000 on November 13? [No] ask 0.220 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Chiefs vs. Falcons [Falcons] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
