@@ -1,3 +1,4 @@
-task=scan  started=2026-11-09 01:03:15 UTC
-mode=scan_only events=327 outcomes=14656 signals=1 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-09 02:11:30 UTC
+mode=scan_only events=327 outcomes=12684 signals=2 opened=0 closed=0 equity=1000.00
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs [Bilibili Gaming] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
