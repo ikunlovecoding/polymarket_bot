@@ -1,11 +1,10 @@
-task=scan  started=2026-11-09 10:57:59 UTC
-mode=scan_only events=425 outcomes=24276 signals=9 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-09 11:56:46 UTC
+mode=scan_only events=425 outcomes=23956 signals=8 opened=0 closed=0 equity=1000.00
   SIGNAL LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs [Bilibili Gaming] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will France win on 2026-11-12? [No] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $72,000 on November 14? [No] ask 0.270 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin reach $76,000 November 9-15? [No] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will the price of Bitcoin be above $72,000 on November 14? [No] ask 0.250 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin reach $76,000 November 9-15? [No] ask 0.330 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Commanders vs. Giants [Commanders] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will MOUZ Win the BLAST Rivals Hong Kong 2026? [Yes] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Ethereum be above $2,000 on November 13? [No] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Chiefs vs. Falcons [Falcons] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
