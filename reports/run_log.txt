@@ -1,10 +1,9 @@
-task=scan  started=2026-11-09 19:56:16 UTC
-mode=scan_only events=425 outcomes=27458 signals=8 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-09 20:53:27 UTC
+mode=scan_only events=425 outcomes=27982 signals=7 opened=0 closed=0 equity=1000.00
   SIGNAL LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs [Bilibili Gaming] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin reach $76,000 November 9-15? [No] ask 0.240 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will FC Barcelona win on 2026-11-22? [No] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin reach $76,000 November 9-15? [No] ask 0.250 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will FC Barcelona win on 2026-11-22? [No] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Patriots vs. Lions [Patriots] ask 0.420 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Commanders vs. Giants [Commanders] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Chiefs vs. Falcons [Falcons] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will MOUZ Win the BLAST Rivals Hong Kong 2026? [Yes] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
