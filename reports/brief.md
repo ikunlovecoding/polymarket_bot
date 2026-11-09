@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-09
-_Generated 2026-11-09 13:10 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-09 14:55 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -17,9 +17,9 @@ _Generated 2026-11-09 13:10 UTC · mode **scan_only** · paper money only_
 ## Signals in the latest scan
 - LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs · Bilibili Gaming @ 0.380 · high · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.340 · high · not traded: mode is 'scan_only' (signals only)
-- Will France win on 2026-11-12? · No @ 0.470 · high · not traded: mode is 'scan_only' (signals only)
-- Will Bitcoin reach $76,000 November 9-15? · No @ 0.240 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $72,000 on November 14? · No @ 0.220 · normal · not traded: mode is 'scan_only' (signals only)
+- Will France win on 2026-11-12? · No @ 0.470 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Bitcoin reach $76,000 November 9-15? · No @ 0.230 · normal · not traded: mode is 'scan_only' (signals only)
+- Will the price of Bitcoin be above $72,000 on November 14? · No @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
 - Commanders vs. Giants · Commanders @ 0.460 · normal · not traded: mode is 'scan_only' (signals only)
 - Will MOUZ Win the BLAST Rivals Hong Kong 2026? · Yes @ 0.200 · normal · not traded: mode is 'scan_only' (signals only)
 - Chiefs vs. Falcons · Falcons @ 0.370 · normal · not traded: mode is 'scan_only' (signals only)
