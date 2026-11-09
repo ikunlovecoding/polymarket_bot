@@ -1,4 +1,3 @@
-task=scan  started=2026-11-08 23:37:28 UTC
-mode=scan_only events=324 outcomes=16534 signals=2 opened=0 closed=0 equity=1000.00
-  SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.330 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will the price of Bitcoin be above $72,000 on November 14? [No] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-11-09 01:03:15 UTC
+mode=scan_only events=327 outcomes=14656 signals=1 opened=0 closed=0 equity=1000.00
+  SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.340 -> not traded: mode is 'scan_only' (signals only)
