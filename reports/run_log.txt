@@ -1,9 +1,9 @@
-task=scan  started=2026-11-10 02:52:02 UTC
-mode=scan_only events=326 outcomes=14376 signals=7 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-10 03:50:45 UTC
+mode=scan_only events=326 outcomes=13300 signals=7 opened=0 closed=0 equity=1000.00
   SIGNAL LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs [Bilibili Gaming] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin dip to $72,000 November 9-15? [Yes] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin dip to $72,000 November 9-15? [Yes] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Lions (-2.5) [Patriots] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will FC Barcelona win on 2026-11-22? [No] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Rams vs. Cardinals: O/U 42.5 [Over] ask 0.420 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum dip to $2,000 November 9-15? [Yes] ask 0.390 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum dip to $2,000 November 9-15? [Yes] ask 0.430 -> not traded: mode is 'scan_only' (signals only)
