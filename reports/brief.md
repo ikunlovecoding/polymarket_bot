@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-10
-_Generated 2026-11-10 16:52 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-10 17:48 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -17,18 +17,17 @@ _Generated 2026-11-10 16:52 UTC · mode **scan_only** · paper money only_
 ## Signals in the latest scan
 - Game Handicap: GEN (-1.5) vs Bilibili Gaming (+1.5) · Gen.G @ 0.430 · high · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.350 · high · not traded: mode is 'scan_only' (signals only)
-- Will Bitcoin dip to $72,000 November 9-15? · No @ 0.240 · high · not traded: mode is 'scan_only' (signals only)
+- Will Bitcoin dip to $72,000 November 9-15? · No @ 0.270 · high · not traded: mode is 'scan_only' (signals only)
 - Spread: Lions (-2.5) · Patriots @ 0.470 · normal · not traded: mode is 'scan_only' (signals only)
 - Will FC Barcelona win on 2026-11-22? · No @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
 - 49ers vs. Cowboys · Cowboys @ 0.350 · normal · not traded: mode is 'scan_only' (signals only)
 - Bills vs. Jets · Jets @ 0.200 · normal · not traded: mode is 'scan_only' (signals only)
-- Norway vs. Wales: Norway O/U 4.5 Corners · Under @ 0.410 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Kevin Holland vs. Uroš Medic (Welterweight, Main Card) · Kevin Holland @ 0.430 · normal · not traded: mode is 'scan_only' (signals only)
-- UFC 334: Amanda Nunes vs. Kayla Harrison (Women's Bantamweight, Main Card) · Amanda Nunes @ 0.380 · normal · not traded: mode is 'scan_only' (signals only)
-- Will the price of Bitcoin be above $72,000 on November 13? · No @ 0.360 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Ethereum dip to $1,900 November 9-15? · Yes @ 0.380 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum dip to $1,900 November 9-15? · Yes @ 0.360 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Caio Borralho vs. Yousri Belgaroui (Middleweight, Main Card) · Yousri Belgaroui @ 0.420 · normal · not traded: mode is 'scan_only' (signals only)
+- Spread: Jaguars (-10.5) · Jaguars @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: LSU (-4.5) · LSU @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
+- UFC 334: Amanda Nunes vs. Kayla Harrison (Women's Bantamweight, Main Card) · Amanda Nunes @ 0.380 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
