@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-10
-_Generated 2026-11-10 19:53 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-10 20:45 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -16,20 +16,21 @@ _Generated 2026-11-10 19:53 UTC · mode **scan_only** · paper money only_
 
 ## Signals in the latest scan
 - Game Handicap: GEN (-1.5) vs Bilibili Gaming (+1.5) · Gen.G @ 0.440 · high · not traded: mode is 'scan_only' (signals only)
-- UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.350 · high · not traded: mode is 'scan_only' (signals only)
-- Will Bitcoin dip to $72,000 November 9-15? · No @ 0.380 · high · not traded: mode is 'scan_only' (signals only)
+- UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) · Josh Hokit @ 0.360 · high · not traded: mode is 'scan_only' (signals only)
+- Will Bitcoin dip to $72,000 November 9-15? · No @ 0.410 · high · not traded: mode is 'scan_only' (signals only)
 - Spread: Packers (-5.5) · Packers @ 0.440 · high · not traded: mode is 'scan_only' (signals only)
-- Spread: Lions (-2.5) · Patriots @ 0.470 · normal · not traded: mode is 'scan_only' (signals only)
+- Spread: Lions (-2.5) · Patriots @ 0.470 · high · not traded: mode is 'scan_only' (signals only)
+- Seahawks vs. Raiders · Raiders @ 0.270 · normal · not traded: mode is 'scan_only' (signals only)
 - 49ers vs. Cowboys · Cowboys @ 0.340 · normal · not traded: mode is 'scan_only' (signals only)
-- Seahawks vs. Raiders · Raiders @ 0.280 · normal · not traded: mode is 'scan_only' (signals only)
 - Bills vs. Jets · Jets @ 0.200 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Kevin Holland vs. Uroš Medic (Welterweight, Main Card) · Kevin Holland @ 0.430 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum dip to $1,900 November 9-15? · Yes @ 0.280 · normal · not traded: mode is 'scan_only' (signals only)
 - Will FC Barcelona win on 2026-11-22? · No @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Ethereum dip to $1,900 November 9-15? · Yes @ 0.300 · normal · not traded: mode is 'scan_only' (signals only)
+- Dolphins vs. Colts · Dolphins @ 0.440 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Caio Borralho vs. Yousri Belgaroui (Middleweight, Main Card) · Yousri Belgaroui @ 0.420 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Evan Elder vs. Samuel Sanches (Lightweight, Early Prelims) · Evan Elder @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: Jaguars (-10.5) · Jaguars @ 0.510 · normal · not traded: mode is 'scan_only' (signals only)
-- Spread: LSU (-4.5) · LSU @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
+- Spread: LSU (-4.5) · LSU @ 0.490 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Amanda Nunes vs. Kayla Harrison (Women's Bantamweight, Main Card) · Amanda Nunes @ 0.380 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
