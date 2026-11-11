@@ -1,21 +1,19 @@
-task=scan  started=2026-11-11 19:59:00 UTC
-mode=scan_only events=425 outcomes=32298 signals=19 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-11 21:35:46 UTC
+mode=scan_only events=427 outcomes=34088 signals=17 opened=0 closed=0 equity=1000.00
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Vikings vs. Packers [Vikings] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Chiefs vs. Falcons [Falcons] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin dip to $72,000 November 9-15? [Yes] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin dip to $72,000 November 9-15? [Yes] ask 0.280 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Washington State (-8.5) [Colorado State] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Seahawks vs. Raiders [Raiders] ask 0.280 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Dolphins vs. Colts [Dolphins] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL San Jose State vs. Air Force: O/U 45.5 [Under] ask 0.440 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Ethereum reach $2,200 November 9-15? [Yes] ask 0.260 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Missouri vs. Georgia: O/U 45.5 [Under] ask 0.450 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Patriots vs. Lions [Patriots] ask 0.420 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Bengals (-3.5) [Bengals] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Utah State vs. San Diego State: O/U 41.5 [Under] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Seahawks vs. Raiders [Raiders] ask 0.280 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL UFC 334: Kevin Holland vs. Uroš Medic (Welterweight, Main Card) [Kevin Holland] ask 0.430 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Stephen Thompson vs. Charles Radtke (Welterweight, Prelims) [Charles Radtke] ask 0.410 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL California vs. Virginia: O/U 47.5 [Over] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Bills vs. Jets [Jets] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Vitality Win the BLAST Rivals Hong Kong 2026? [Yes] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UNLV vs. New Mexico: O/U 45.5 [Under] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Evan Elder vs. Samuel Sanches (Lightweight, Early Prelims) [Evan Elder] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL UFC 334: Amanda Nunes vs. Kayla Harrison (Women's Bantamweight, Main Card) [Amanda Nunes] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
