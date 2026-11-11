@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-11
-_Generated 2026-11-11 08:56 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-11 09:58 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -21,16 +21,16 @@ _Generated 2026-11-11 08:56 UTC · mode **scan_only** · paper money only_
 - Chiefs vs. Falcons · Falcons @ 0.370 · high · not traded: mode is 'scan_only' (signals only)
 - Seahawks vs. Raiders · Raiders @ 0.280 · high · not traded: mode is 'scan_only' (signals only)
 - 49ers vs. Cowboys · Cowboys @ 0.350 · high · not traded: mode is 'scan_only' (signals only)
-- Will Bitcoin dip to $72,000 November 9-15? · No @ 0.470 · high · not traded: mode is 'scan_only' (signals only)
+- Will Bitcoin dip to $72,000 November 9-15? · No @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - Dolphins vs. Colts · Dolphins @ 0.350 · normal · not traded: mode is 'scan_only' (signals only)
 - Bills vs. Jets · Jets @ 0.200 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: Bengals (-3.5) · Bengals @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Kevin Holland vs. Uroš Medic (Welterweight, Main Card) · Kevin Holland @ 0.430 · normal · not traded: mode is 'scan_only' (signals only)
-- Will MOUZ Win the BLAST Rivals Hong Kong 2026? · Yes @ 0.250 · normal · not traded: mode is 'scan_only' (signals only)
+- Will MOUZ Win the BLAST Rivals Hong Kong 2026? · Yes @ 0.310 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Caio Borralho vs. Yousri Belgaroui (Middleweight, Main Card) · Yousri Belgaroui @ 0.420 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: LSU (-4.5) · LSU @ 0.490 · normal · not traded: mode is 'scan_only' (signals only)
 - Will FC Barcelona win on 2026-11-22? · No @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Ethereum dip to $2,000 November 9-15? · No @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum dip to $2,000 November 9-15? · No @ 0.410 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Evan Elder vs. Samuel Sanches (Lightweight, Early Prelims) · Evan Elder @ 0.480 · normal · not traded: mode is 'scan_only' (signals only)
 - Spread: Jaguars (-10.5) · Jaguars @ 0.510 · normal · not traded: mode is 'scan_only' (signals only)
 - UFC 334: Cesar Almeida vs. Donte Johnson (Middleweight, Prelims) · Cesar Almeida @ 0.400 · normal · not traded: mode is 'scan_only' (signals only)
