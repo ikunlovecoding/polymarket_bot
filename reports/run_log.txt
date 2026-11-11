@@ -1,21 +1,19 @@
-task=scan  started=2026-11-11 10:59:57 UTC
-mode=scan_only events=425 outcomes=26314 signals=19 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-11 11:56:19 UTC
+mode=scan_only events=425 outcomes=26346 signals=17 opened=0 closed=0 equity=1000.00
   SIGNAL UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card) [Josh Hokit] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs [Bilibili Gaming] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Vikings vs. Packers [Vikings] ask 0.380 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Chiefs vs. Falcons [Falcons] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Seahawks vs. Raiders [Raiders] ask 0.280 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Dolphins vs. Colts [Dolphins] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin dip to $72,000 November 9-15? [Yes] ask 0.460 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Bills vs. Jets [Jets] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin dip to $72,000 November 9-15? [Yes] ask 0.450 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Bengals (-3.5) [Bengals] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Bills vs. Jets [Jets] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Kevin Holland vs. Uroš Medic (Welterweight, Main Card) [Kevin Holland] ask 0.430 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will MOUZ Win the BLAST Rivals Hong Kong 2026? [Yes] ask 0.290 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will MOUZ Win the BLAST Rivals Hong Kong 2026? [Yes] ask 0.240 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Caio Borralho vs. Yousri Belgaroui (Middleweight, Main Card) [Yousri Belgaroui] ask 0.420 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Will Ethereum reach $2,200 November 9-15? [Yes] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: LSU (-4.5) [LSU] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will FC Barcelona win on 2026-11-22? [No] ask 0.200 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL 49ers vs. Cowboys [Cowboys] ask 0.350 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Jaguars (-10.5) [Jaguars] ask 0.510 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL UFC 334: Cesar Almeida vs. Donte Johnson (Middleweight, Prelims) [Cesar Almeida] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL UFC 334: Evan Elder vs. Samuel Sanches (Lightweight, Early Prelims) [Evan Elder] ask 0.480 -> not traded: mode is 'scan_only' (signals only)
