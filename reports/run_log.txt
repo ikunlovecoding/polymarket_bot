@@ -1,7 +1,3 @@
-task=scan  started=2026-11-12 11:58:11 UTC
-mode=scan_only events=426 outcomes=28404 signals=5 opened=0 closed=0 equity=1000.00
-  SIGNAL Bills vs. Jets [Jets] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Vikings vs. Packers [Vikings] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Patriots vs. Lions [Patriots] ask 0.420 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin dip to $72,000 November 9-15? [No] ask 0.280 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Chiefs vs. Falcons [Falcons] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
+task=scan  started=2026-11-12 13:09:48 UTC
+  ERROR Could not read market list: GET failed: https://gamma-api.polymarket.com/events?active=true&closed=false&order=volume24hr&ascending=false&limit=100&end_date_min=2026-11-12T13%3A09%3A48.593919Z&end_date_max=2026-12-12T13%3A09%3A48.593919Z&tag_slug=sports&offset=0 (HTTP Error 406: Not Acceptable)
+mode=scan_only events=0 outcomes=0 signals=0 opened=0 closed=0 equity=1000.00
