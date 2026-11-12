@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-12
-_Generated 2026-11-12 02:51 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-12 03:55 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -16,14 +16,12 @@ _Generated 2026-11-12 02:51 UTC · mode **scan_only** · paper money only_
 
 ## Signals in the latest scan
 - Vikings vs. Packers · Vikings @ 0.400 · high · not traded: mode is 'scan_only' (signals only)
-- Bills vs. Jets · Jets @ 0.210 · high · not traded: mode is 'scan_only' (signals only)
+- Bills vs. Jets · Jets @ 0.210 · normal · not traded: mode is 'scan_only' (signals only)
 - Patriots vs. Lions · Patriots @ 0.420 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Bitcoin dip to $72,000 November 9-15? · Yes @ 0.430 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Bitcoin dip to $72,000 November 9-15? · Yes @ 0.470 · normal · not traded: mode is 'scan_only' (signals only)
 - Chiefs vs. Falcons · Falcons @ 0.370 · normal · not traded: mode is 'scan_only' (signals only)
-- Will Ethereum dip to $2,000 November 9-15? · No @ 0.470 · normal · not traded: mode is 'scan_only' (signals only)
-- Spread: Washington State (-8.5) · Colorado State @ 0.500 · normal · not traded: mode is 'scan_only' (signals only)
+- Will Ethereum dip to $2,000 November 9-15? · No @ 0.430 · normal · not traded: mode is 'scan_only' (signals only)
 - Seahawks vs. Raiders · Raiders @ 0.280 · normal · not traded: mode is 'scan_only' (signals only)
-- Spread: Bengals (-3.5) · Bengals @ 0.490 · normal · not traded: mode is 'scan_only' (signals only)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
