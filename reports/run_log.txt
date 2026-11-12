@@ -1,13 +1,11 @@
-task=scan  started=2026-11-12 01:08:14 UTC
-mode=scan_only events=428 outcomes=29454 signals=11 opened=0 closed=0 equity=1000.00
+task=scan  started=2026-11-12 02:51:41 UTC
+mode=scan_only events=428 outcomes=30168 signals=9 opened=0 closed=0 equity=1000.00
   SIGNAL Vikings vs. Packers [Vikings] ask 0.400 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Bills vs. Jets [Jets] ask 0.210 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Bitcoin dip to $72,000 November 9-15? [Yes] ask 0.450 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Chiefs vs. Falcons [Falcons] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Ethereum dip to $2,000 November 9-15? [No] ask 0.440 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Spread: Washington State (-8.5) [Colorado State] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Patriots vs. Lions [Patriots] ask 0.420 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Utah State vs. San Diego State: O/U 41.5 [Under] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
-  SIGNAL Will Vitality Win the BLAST Rivals Hong Kong 2026? [Yes] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Bitcoin dip to $72,000 November 9-15? [Yes] ask 0.430 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Chiefs vs. Falcons [Falcons] ask 0.370 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Will Ethereum dip to $2,000 November 9-15? [No] ask 0.470 -> not traded: mode is 'scan_only' (signals only)
+  SIGNAL Spread: Washington State (-8.5) [Colorado State] ask 0.500 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Seahawks vs. Raiders [Raiders] ask 0.280 -> not traded: mode is 'scan_only' (signals only)
   SIGNAL Spread: Bengals (-3.5) [Bengals] ask 0.490 -> not traded: mode is 'scan_only' (signals only)
