@@ -1,5 +1,5 @@
 # Morning brief: 2026-11-20
-_Generated 2026-11-20 14:55 UTC · mode **scan_only** · paper money only_
+_Generated 2026-11-20 15:57 UTC · mode **scan_only** · paper money only_
 
 ## Account
 - Equity **$1,000.00** (+0.00 since start)
@@ -18,7 +18,7 @@ _Generated 2026-11-20 14:55 UTC · mode **scan_only** · paper money only_
 - None
 
 ## Problems
-- Could not read market list: GET failed: https://gamma-api.polymarket.com/events?active=true&closed=false&order=volume24hr&ascending=false&limit=100&end_date_min=2026-11-20T14%3A55%3A41.809591Z&end_date_max=2026-12-20T14%3A55%3A41.809591Z&tag_slug=sports&offset=0 (HTTP Error 406: Not Acceptable)
+- Could not read market list: GET failed: https://gamma-api.polymarket.com/events?active=true&closed=false&order=volume24hr&ascending=false&limit=100&end_date_min=2026-11-20T15%3A57%3A40.595873Z&end_date_max=2026-12-20T15%3A57%3A40.595873Z&tag_slug=sports&offset=0 (HTTP Error 406: Not Acceptable)
 
 ## Waiting for your approval
 - Nothing. Paper trades need no approval, and this bot cannot place real trades.
