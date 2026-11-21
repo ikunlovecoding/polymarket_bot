@@ -1,10 +1,10 @@
-# Last scan: 2026-11-21 20:42 UTC
+# Last scan: 2026-11-21 21:41 UTC
 - Mode: **scan_only**
 - Events read: 0 · outcomes checked: 0
 - Signals: 0 · paper trades opened: 0 · closed: 0
 
 ## Errors
-- Could not read market list: GET failed: https://gamma-api.polymarket.com/events?active=true&closed=false&order=volume24hr&ascending=false&limit=100&end_date_min=2026-11-21T20%3A42%3A33.991624Z&end_date_max=2026-12-21T20%3A42%3A33.991624Z&tag_slug=sports&offset=0 (HTTP Error 406: Not Acceptable)
+- Could not read market list: GET failed: https://gamma-api.polymarket.com/events?active=true&closed=false&order=volume24hr&ascending=false&limit=100&end_date_min=2026-11-21T21%3A41%3A39.430182Z&end_date_max=2026-12-21T21%3A41%3A39.430182Z&tag_slug=sports&offset=0 (HTTP Error 406: Not Acceptable)
 
 ## Signals
 No market met every rule.
