@@ -1,3 +1,3 @@
-task=scan  started=2026-11-22 03:55:09 UTC
-  ERROR Could not read market list: GET failed: https://gamma-api.polymarket.com/events?active=true&closed=false&order=volume24hr&ascending=false&limit=100&end_date_min=2026-11-22T03%3A55%3A09.853372Z&end_date_max=2026-12-22T03%3A55%3A09.853372Z&tag_slug=sports&offset=0 (HTTP Error 406: Not Acceptable)
+task=scan  started=2026-11-22 04:58:52 UTC
+  ERROR Could not read market list: GET failed: https://gamma-api.polymarket.com/events?active=true&closed=false&order=volume24hr&ascending=false&limit=100&end_date_min=2026-11-22T04%3A58%3A52.327013Z&end_date_max=2026-12-22T04%3A58%3A52.327013Z&tag_slug=sports&offset=0 (HTTP Error 406: Not Acceptable)
 mode=scan_only events=0 outcomes=0 signals=0 opened=0 closed=0 equity=1000.00
